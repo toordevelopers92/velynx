@@ -1,0 +1,30 @@
+{
+  "name": "@toordevelopers92/velynx",
+  "version": "0.1.0",
+  "description": "Velynx core CSS framework",
+  "type": "module",
+  "files": ["dist"],
+  "main": "dist/velynx.extended.css",
+  "style": "dist/velynx.extended.css",
+  "exports": {
+    ".": {
+      "default": "./dist/velynx.extended.css"
+    },
+    "./core": "./dist/velynx.core.css",
+    "./tokens": "./dist/velynx.tokens.css"
+  },
+  "scripts": {
+    "build": "pnpm run build:css",
+    "build:css": "tsx scripts/build-css.ts",
+    "lint": "stylelint \"src/**/*.css\"",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.40",
+    "postcss-cli": "^11.0.0",
+    "stylelint": "^16.8.2",
+    "tsx": "^4.16.2",
+    "vitest": "^2.0.5"
+  }
+}

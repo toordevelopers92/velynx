@@ -1,0 +1,26 @@
+{
+  "name": "@toordevelopers92/velynx-js",
+  "version": "0.1.0",
+  "description": "Velynx interaction modules",
+  "type": "module",
+  "files": ["dist"],
+  "main": "dist/velynx.umd.js",
+  "module": "dist/velynx.esm.js",
+  "exports": {
+    ".": {
+      "import": "./dist/velynx.esm.js",
+      "require": "./dist/velynx.umd.js"
+    }
+  },
+  "scripts": {
+    "build": "vite build",
+    "test": "vitest run",
+    "lint": "eslint \"src/**/*.ts\""
+  },
+  "devDependencies": {
+    "jsdom": "^24.0.0",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.2",
+    "vitest": "^2.0.5"
+  }
+}

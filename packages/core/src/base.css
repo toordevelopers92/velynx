@@ -1,0 +1,116 @@
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    color-scheme: dark light;
+    font-family: "Space Grotesk", "Segoe UI", sans-serif;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    margin: 0;
+    background: var(--vx-bg);
+    color: var(--vx-ink);
+  }
+
+  img,
+  svg,
+  video,
+  canvas {
+    max-width: 100%;
+    display: block;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+    color: inherit;
+  }
+
+  :root,
+  .t-dark {
+    --vx-bg: var(--vx-palette-base0);
+    --vx-ink: var(--vx-palette-ink1);
+    --vx-ink-muted: var(--vx-palette-ink3);
+    --vx-surface-1: var(--vx-glass-surface1);
+    --vx-surface-2: var(--vx-glass-surface2);
+    --vx-surface-3: var(--vx-glass-surface3);
+    --vx-line-1: var(--vx-glass-line1);
+    --vx-line-2: var(--vx-glass-line2);
+    --vx-accent: var(--vx-palette-neon);
+    --vx-accent-2: var(--vx-palette-pulse);
+    --vx-danger: var(--vx-palette-alert);
+    --vx-warn: var(--vx-palette-warn);
+  }
+
+  .t-light {
+    --vx-bg: #f4f7ff;
+    --vx-ink: #1c2342;
+    --vx-ink-muted: #49507a;
+    --vx-surface-1: rgba(255, 255, 255, 0.72);
+    --vx-surface-2: rgba(255, 255, 255, 0.55);
+    --vx-surface-3: rgba(255, 255, 255, 0.35);
+    --vx-line-1: rgba(38, 56, 96, 0.2);
+    --vx-line-2: rgba(38, 56, 96, 0.35);
+    --vx-accent: #235bff;
+    --vx-accent-2: #00c2a8;
+    --vx-danger: #d94141;
+    --vx-warn: #c29a1c;
+  }
+
+  .t-contrast {
+    --vx-bg: #000000;
+    --vx-ink: #ffffff;
+    --vx-ink-muted: #d9d9d9;
+    --vx-surface-1: rgba(255, 255, 255, 0.1);
+    --vx-surface-2: rgba(255, 255, 255, 0.08);
+    --vx-surface-3: rgba(255, 255, 255, 0.06);
+    --vx-line-1: rgba(255, 255, 255, 0.55);
+    --vx-line-2: rgba(255, 255, 255, 0.75);
+    --vx-accent: #00ffff;
+    --vx-accent-2: #ffea00;
+    --vx-danger: #ff3b3b;
+    --vx-warn: #ffb700;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer base {
+  @keyframes vx-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes vx-glow-pulse {
+    0% {
+      box-shadow: var(--vx-glow-g1);
+    }
+    50% {
+      box-shadow: var(--vx-glow-g2);
+    }
+    100% {
+      box-shadow: var(--vx-glow-g1);
+    }
+  }
+}

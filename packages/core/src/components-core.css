@@ -1,0 +1,59 @@
+@layer components {
+  .c-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--vx-space-s2);
+    padding: var(--vx-space-s2) var(--vx-space-s4);
+    border-radius: var(--vx-radius-r3);
+    border: var(--vx-border-thin) solid var(--vx-line-1);
+    background: linear-gradient(135deg, var(--vx-surface-1), var(--vx-surface-2));
+    color: var(--vx-ink);
+    backdrop-filter: blur(var(--vx-blur-b2));
+    cursor: pointer;
+    transition: transform var(--vx-duration-d2) var(--vx-easing-e1),
+      box-shadow var(--vx-duration-d2) var(--vx-easing-e1);
+  }
+
+  .c-button:hover {
+    box-shadow: var(--vx-glow-g1);
+    transform: translateY(-1px);
+  }
+
+  .c-button[disabled],
+  .c-button.s-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  .c-button--solid {
+    background: linear-gradient(135deg, var(--vx-accent), var(--vx-accent-2));
+    color: #0b0f1a;
+    border-color: transparent;
+  }
+
+  .c-input {
+    width: 100%;
+    padding: var(--vx-space-s2) var(--vx-space-s3);
+    border-radius: var(--vx-radius-r2);
+    border: var(--vx-border-thin) solid var(--vx-line-1);
+    background: var(--vx-surface-2);
+    color: var(--vx-ink);
+    backdrop-filter: blur(var(--vx-blur-b1));
+  }
+
+  .c-input:focus {
+    outline: none;
+    border-color: var(--vx-accent);
+    box-shadow: var(--vx-glow-g1);
+  }
+
+  .c-card {
+    padding: var(--vx-space-s5);
+    border-radius: var(--vx-radius-r4);
+    border: var(--vx-border-thin) solid var(--vx-line-1);
+    background: var(--vx-surface-1);
+    backdrop-filter: blur(var(--vx-blur-b3));
+  }
+}
