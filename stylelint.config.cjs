@@ -1,7 +1,13 @@
 module.exports = {
   extends: ['stylelint-config-standard', 'stylelint-config-recommended'],
   rules: {
-    'color-hex-case': 'lower',
-    'declaration-block-no-redundant-longhand-properties': true
+    'alpha-value-notation': 'number',
+    'color-function-notation': 'legacy',
+    'color-hex-length': 'long',
+    'declaration-block-no-redundant-longhand-properties': true,
+    'no-descending-specificity': null,
+    'rule-empty-line-before': null,
+    'selector-class-pattern': null,
+    'value-keyword-case': ['lower', { ignoreKeywords: ['optimizeLegibility'] }]
   }
 };
