@@ -1,8 +1,26 @@
 {
   "name": "velynx-monorepo",
-  "private": true,
   "version": "0.1.0",
-  "packageManager": "pnpm@9.0.0",
+  "private": false,
+  "description": "Framework",
+  "keywords": [
+    "velynx"
+  ],
+  "homepage": "https://github.com/toordevelopers92/velynx#readme",
+  "bugs": {
+    "url": "https://github.com/toordevelopers92/velynx/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toordevelopers92/velynx.git"
+  },
+  "license": "ISC",
+  "author": "Toor Developers Inc",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
   "scripts": {
     "build": "pnpm -C packages/core build && pnpm -C packages/js build",
     "docs:build": "pnpm -C packages/docs docs:build",
@@ -10,10 +28,9 @@
     "lint": "pnpm -C packages/core lint && pnpm -C packages/js lint && pnpm -C packages/docs lint",
     "format": "prettier -w ."
   },
-  "pnpm": {
-    "overrides": {
-      "esbuild": "0.21.5"
-    }
+  "dependencies": {
+    "eslint-scope": "^7.2.2",
+    "eslint-visitor-keys": "^3.4.3"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.18.0",
@@ -27,5 +44,11 @@
     "stylelint-config-recommended": "^14.0.0",
     "stylelint-config-standard": "^36.0.0",
     "typescript": "^5.5.4"
+  },
+  "packageManager": "pnpm@9.0.0",
+  "pnpm": {
+    "overrides": {
+      "esbuild": "0.21.5"
+    }
   }
 }
