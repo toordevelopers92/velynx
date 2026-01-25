@@ -1,4 +1,4 @@
-import { byId, setAriaExpanded, setAriaHidden, toggleClass } from './helpers';
+import { setAriaExpanded, setAriaHidden, toggleClass } from './helpers';
 
 export class Modal {
   private root: HTMLElement;
