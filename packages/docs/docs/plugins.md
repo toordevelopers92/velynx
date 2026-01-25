@@ -9,10 +9,13 @@ import type { FrameworkConfig } from '../framework.config';
 
 export const glowBadgePlugin = (config: FrameworkConfig) => {
   const glow = config.tokens.glow.g2;
-  return `@layer components {\n  .c-badge--glow { box-shadow: ${glow}; }\n}`;
+  return `@layer modules {\n  .vxc-badge.vxs-glow { box-shadow: ${glow}; }\n}`;
 };
 ```
 
 ## How to run a plugin
 
 Add your plugin output to the build script or concatenate it after `components-extended.css`.
+
+
+

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0
+
+- Introduced new prefix and suffix-based variant system across utilities and components.
+- Expanded token model with typography scale, weights, tracking, and container sizing.
+- Modernized docs, examples, and added the full framework audit blueprint.
+
 ## 0.1.1
 
 - Added atomic utility system with variants, plus new tokens (fonts, shadows, ring).

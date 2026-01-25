@@ -1,89 +1,87 @@
 # Utility catalog
 
-Velynx ships two utility systems:
+Velynx utilities share the `vxu-` prefix and come in two tiers:
 
-- Atomic utilities (recommended): `p-4`, `text-primary`, `bg-surface-2`, `rounded-lg`, `shadow-lg`
-- Legacy utilities (still supported): `u-space-in--s4`, `u-measure-w--c40`
+- Micro utilities: property-level classes for layout, spacing, typography, color, effects, and interaction.
+- Macro utilities: compositional helpers for flow, grids, glass, safe-area, and container queries.
 
-## Atomic utilities
-
-Atomic utilities follow a compact, predictable grammar inspired by functional CSS.
+## Micro utilities
 
 ```html
-<div class="p-4 bg-surface-1 text-ink shadow-lg rounded-lg"></div>
-<button class="px-4 py-2 bg-primary text-bg hover:bg-accent-2 transition">Action</button>
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-4"></div>
+<div class="vxu-p-4 vxu-bg-surface-1 vxu-text-ink vxu-shadow-lg vxu-rounded-lg"></div>
+<button class="vxu-px-4 vxu-py-2 vxu-bg-primary vxu-text-bg vxu-transition vxu-bg-accent-2__hover">Action</button>
+<div class="vxu-grid vxu-grid-cols-1 vxu-grid-cols-3__at-m vxu-gap-4"></div>
 ```
 
-### Variants
+## Macro utilities
 
-- Responsive: `sm:`, `md:`, `lg:`, `xl:`, `2xl:`
-- States: `hover:`, `focus:`, `focus-visible:`, `active:`, `disabled:`
-- Group/peer: `group-hover:`, `peer-checked:`
-- ARIA/data: `aria-expanded:`, `data-state-open:`
-- Theme/dir: `dark:`, `contrast:`, `rtl:`
-- Motion: `motion-safe:`, `motion-reduce:`
-
-## Legacy utilities
-
-Legacy utilities use a grammar designed for legibility:
-
-```
-<family>-<variant>--<value>
+```html
+<div class="vxu-flow-stack--s4 vxu-glass--1 vxu-space-in--s5"></div>
+<div class="vxu-cq vxu-flow-cluster--s2 vxu-space-gap--s2"></div>
+<div class="vxu-safe-in--inline"></div>
 ```
 
-Prefix families with `u-`. Examples:
+## Variant suffixes
 
-- `u-space-in--s4` pads all sides
-- `u-space-x--s3` pads inline axis
-- `u-measure-w--c40` sets width to 40ch
-- `u-tone-surface--2` sets glass background surface 2
+- Interaction: `__hover`, `__focus`, `__focus-visible`, `__active`, `__disabled`
+- Group/peer: `__group-hover`, `__peer-checked` (use `.vxs-group` and `.vxs-peer`)
+- ARIA/data: `__aria-expanded`, `__data-open`, `__data-closed`
+- Theme/dir: `__theme-dark`, `__theme-light`, `__theme-contrast`, `__rtl`
+- Responsive: `__at-s`, `__at-m`, `__at-l`, `__at-xl`, `__at-2xl`
+- Container query: `__cq-c1`, `__cq-c2`, `__cq-c3`, `__cq-c4`
+- Motion/print: `__motion-ok`, `__motion-reduce`, `__print`
+- Accessibility contrast: `__forced`, `__contrast`
+
+`__data-open` and `__data-closed` map to `[data-vx-state="open|closed"]`.
 
 ## Prefix system
 
-- Atomic utilities have no prefix.
-- Legacy utilities: `u-`
-- Components: `c-`
-- States: `s-`
-- Motion: `m-`
-- Themes: `t-`
+- Utilities: `vxu-`
+- Components: `vxc-`
+- States/variants: `vxs-`
+- Motion: `vxm-`
+- Themes: `vxt-`
 
 ## Spacing
 
 | Class | Result |
 | --- | --- |
-| `u-space-in--s4` | padding using space token s4 |
-| `u-space-out--s2` | margin using space token s2 |
-| `u-space-gap--s3` | gap for flex/grid |
+| `vxu-space-in--s4` | padding using space token s4 |
+| `vxu-space-out--s2` | margin using space token s2 |
+| `vxu-space-gap--s3` | gap for flex/grid |
 
 ## Layout
 
 | Class | Result |
 | --- | --- |
-| `u-flow-stack--s4` | vertical flow with gap |
-| `u-flow-row--s2` | horizontal flow with gap |
-| `u-grid--2` | two-column grid |
-| `u-container` | responsive centered container |
+| `vxu-flow-stack--s4` | vertical flow with gap |
+| `vxu-flow-row--s2` | horizontal flow with gap |
+| `vxu-grid--2` | two-column grid |
+| `vxu-container` | responsive centered container |
 
 ## Typography
 
 | Class | Result |
 | --- | --- |
-| `u-type-scale--t4` | font-size token |
-| `u-tone-ink--mute` | muted text color |
+| `vxu-type-scale--t4` | tokenized font-size |
+| `vxu-font-mono` | monospace font family |
+| `vxu-text-center` | text alignment |
 
 ## Effects
 
 | Class | Result |
 | --- | --- |
-| `u-glass--1` | glass background + blur |
-| `u-glow--g2` | glowing box-shadow |
-| `u-noise--fine` | lightweight noise overlay |
+| `vxu-glass--1` | glass background + blur |
+| `vxu-shadow-glow` | glowing box-shadow |
+| `vxu-noise--fine` | lightweight noise overlay |
 
 ## Responsive variants
 
-Use `u-at-<breakpoint>--` to scope a utility to a breakpoint.
+Use `__at-<breakpoint>` to scope a utility to a breakpoint.
 
 ```
-<div class="u-grid--2 u-at-l--grid--3"></div>
+<div class="vxu-grid-cols-2 vxu-grid-cols-4__at-l"></div>
 ```
+
+
+

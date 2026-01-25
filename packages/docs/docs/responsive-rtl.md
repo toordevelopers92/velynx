@@ -2,34 +2,37 @@
 
 ## Responsive utilities
 
-Atomic utilities use breakpoint prefixes:
+Utilities use suffix-based breakpoints:
 
 ```html
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-4"></div>
-```
-
-Legacy utilities use `u-at-` prefixes:
-
-```html
-<div class="u-grid--2 u-at-l--grid--3"></div>
+<div class="vxu-grid vxu-grid-cols-1 vxu-grid-cols-3__at-m vxu-gap-4"></div>
 ```
 
 Breakpoints are defined in `framework.config.ts` and compiled into the CSS.
 
 ## Container queries
 
-Use `u-cq` to opt into container queries. If container queries are unavailable, layouts fall back to your media query utilities.
+Use `vxu-cq` to opt into container queries. If container queries are unavailable, layouts fall back to your media query utilities.
 
 ```html
-<section class="u-cq"></section>
+<section class="vxu-cq"></section>
+```
+
+Container query variants use `__cq-*`:
+
+```html
+<section class="vxu-grid-cols-2 vxu-grid-cols-4__cq-c3"></section>
 ```
 
 ## RTL support
 
-Velynx uses logical properties for spacing utilities (`padding-inline`, `margin-inline`) where possible. Atomic utilities also support an `rtl:` variant.
+Velynx uses logical properties for spacing utilities (`padding-inline`, `margin-inline`) where possible. Use `__rtl` to scope utilities to RTL mode.
 
 ```html
-<div class="text-left rtl:text-right"></div>
+<div class="vxu-text-left vxu-text-right__rtl"></div>
 ```
 
 If you must use physical left/right values, wrap them in an `[dir="ltr"]` or `[dir="rtl"]` selector.
+
+
+

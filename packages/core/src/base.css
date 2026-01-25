@@ -1,4 +1,4 @@
-@layer base {
+@layer primer {
   *,
   *::before,
   *::after {
@@ -35,7 +35,7 @@
   }
 
   :root,
-  .t-dark {
+  .vxt-dark {
     --vx-bg: var(--vx-palette-base0);
     --vx-ink: var(--vx-palette-ink1);
     --vx-ink-muted: var(--vx-palette-ink3);
@@ -58,7 +58,7 @@
     --vx-ring-offset: var(--vx-bg);
   }
 
-  .t-light {
+  .vxt-light {
     --vx-bg: #f4f7ff;
     --vx-ink: #1c2342;
     --vx-ink-muted: #49507a;
@@ -81,7 +81,7 @@
     --vx-ring-offset: var(--vx-bg);
   }
 
-  .t-contrast {
+  .vxt-contrast {
     --vx-bg: #000000;
     --vx-ink: #ffffff;
     --vx-ink-muted: #d9d9d9;
@@ -114,7 +114,7 @@
   }
 }
 
-@layer base {
+@layer primer {
   @keyframes vx-fade-in {
     from {
       opacity: 0;

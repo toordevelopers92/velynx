@@ -19,3 +19,4 @@ export const setAriaHidden = (el: Element | null, hidden: boolean) => {
     el.setAttribute('aria-hidden', hidden ? 'true' : 'false');
   }
 };
+

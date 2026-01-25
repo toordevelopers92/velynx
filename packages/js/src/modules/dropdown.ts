@@ -15,13 +15,13 @@ export class Dropdown {
 
   open() {
     if (!this.menu || !this.toggle) return;
-    toggleClass(this.menu, 's-open', true);
+    toggleClass(this.menu, 'vxs-open', true);
     setAriaExpanded(this.toggle, true);
   }
 
   close() {
     if (!this.menu || !this.toggle) return;
-    toggleClass(this.menu, 's-open', false);
+    toggleClass(this.menu, 'vxs-open', false);
     setAriaExpanded(this.toggle, false);
   }
 
@@ -29,7 +29,7 @@ export class Dropdown {
     document.querySelectorAll<HTMLElement>('[data-vx="dropdown"]').forEach((root) => {
       const dropdown = new Dropdown(root);
       dropdown.toggle?.addEventListener('click', () => {
-        dropdown.menu?.classList.contains('s-open') ? dropdown.close() : dropdown.open();
+        dropdown.menu?.classList.contains('vxs-open') ? dropdown.close() : dropdown.open();
       });
       document.addEventListener('click', (event) => {
         if (!root.contains(event.target as Node)) {
@@ -39,3 +39,4 @@ export class Dropdown {
     });
   }
 }
+

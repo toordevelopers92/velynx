@@ -13,12 +13,12 @@ export class Popover {
 
   open() {
     if (!this.panel) return;
-    toggleClass(this.panel, 's-hidden', false);
+    toggleClass(this.panel, 'vxs-hidden', false);
   }
 
   close() {
     if (!this.panel) return;
-    toggleClass(this.panel, 's-hidden', true);
+    toggleClass(this.panel, 'vxs-hidden', true);
   }
 
   static wire() {
@@ -26,7 +26,7 @@ export class Popover {
       const popover = new Popover(trigger);
       popover.close();
       trigger.addEventListener('click', () => {
-        popover.panel?.classList.contains('s-hidden') ? popover.open() : popover.close();
+        popover.panel?.classList.contains('vxs-hidden') ? popover.open() : popover.close();
       });
       document.addEventListener('click', (event) => {
         if (!trigger.contains(event.target as Node) && !popover.panel?.contains(event.target as Node)) {
@@ -36,3 +36,4 @@ export class Popover {
     });
   }
 }
+

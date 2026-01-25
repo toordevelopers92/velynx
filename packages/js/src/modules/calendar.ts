@@ -211,17 +211,17 @@ export class Calendar {
       cell.setAttribute('data-vx-date', iso);
 
       if (!isCurrentMonth) {
-        cell.classList.add('s-outside');
+        cell.classList.add('vxs-outside');
       }
       if (isToday) {
-        cell.classList.add('s-today');
+        cell.classList.add('vxs-today');
       }
       if (isSelected && !disabled) {
-        cell.classList.add('s-selected');
+        cell.classList.add('vxs-selected');
         cell.setAttribute('aria-selected', 'true');
       }
       if (disabled) {
-        cell.classList.add('s-disabled');
+        cell.classList.add('vxs-disabled');
         cell.setAttribute('disabled', 'true');
       }
 
@@ -241,3 +241,4 @@ export class Calendar {
     });
   }
 }
+

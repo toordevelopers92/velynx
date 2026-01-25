@@ -9,7 +9,7 @@ const getFramework = () => frameworkModule.framework ?? frameworkModule.default;
 const rootDir = process.cwd();
 const outDir = path.join(rootDir, 'dist');
 
-const layerOrder = '@layer base, tokens, utilities, components, overrides;\n';
+const layerOrder = '@layer primer, spectrum, lattice, modules, overrides;\n';
 
 const readText = async (file: string) => {
   const filePath = path.join(rootDir, file);
@@ -27,8 +27,13 @@ const buildTokens = () => {
   const t = framework.tokens;
   const blocks = [
     toVars('font', t.font),
+    toVars('typeScale', t.typeScale),
+    toVars('weight', t.weight),
+    toVars('leading', t.leading),
+    toVars('tracking', t.tracking),
     toVars('space', t.space),
     toVars('size', t.size),
+    toVars('icon', t.icon),
     toVars('radius', t.radius),
     toVars('blur', t.blur),
     toVars('opacity', t.opacity),
@@ -39,12 +44,13 @@ const buildTokens = () => {
     toVars('duration', t.duration),
     toVars('easing', t.easing),
     toVars('z', t.z),
+    toVars('container', t.container),
     toVars('palette', t.palette),
     toVars('glass', t.glass),
     toVars('noise', t.noise)
   ].join('\n');
 
-  return `@layer tokens {\n:root {\n${blocks}\n}\n}\n`;
+  return `@layer spectrum {\n:root {\n${blocks}\n}\n}\n`;
 };
 
 const classRule = (name: string, body: string) => `.${name} {\n${body}\n}\n`;
@@ -69,119 +75,123 @@ const escapeClassName = (name: string) => {
 const generateUtilities = () => {
   const framework = getFramework();
   const t = framework.tokens;
+  const utilPrefix = framework.classPrefix.utilities ?? 'vxu-';
+  const statePrefix = framework.classPrefix.states ?? 'vxs-';
+  const motionPrefix = framework.classPrefix.motion ?? 'vxm-';
   const rules: string[] = [];
 
+  const util = (name: string) => `${utilPrefix}${name}`;
+  const state = (name: string) => `${statePrefix}${name}`;
+  const motion = (name: string) => `${motionPrefix}${name}`;
+
   for (const key of Object.keys(t.space)) {
-    rules.push(classRule(`u-space-in--${key}`, `  padding: var(--vx-space-${key});`));
-    rules.push(classRule(`u-space-x--${key}`, `  padding-inline: var(--vx-space-${key});`));
-    rules.push(classRule(`u-space-y--${key}`, `  padding-block: var(--vx-space-${key});`));
-    rules.push(classRule(`u-space-out--${key}`, `  margin: var(--vx-space-${key});`));
-    rules.push(classRule(`u-space-gap--${key}`, `  gap: var(--vx-space-${key});`));
+    rules.push(classRule(util(`space-in--${key}`), `  padding: var(--vx-space-${key});`));
+    rules.push(classRule(util(`space-x--${key}`), `  padding-inline: var(--vx-space-${key});`));
+    rules.push(classRule(util(`space-y--${key}`), `  padding-block: var(--vx-space-${key});`));
+    rules.push(classRule(util(`space-out--${key}`), `  margin: var(--vx-space-${key});`));
+    rules.push(classRule(util(`space-out-x--${key}`), `  margin-inline: var(--vx-space-${key});`));
+    rules.push(classRule(util(`space-out-y--${key}`), `  margin-block: var(--vx-space-${key});`));
+    rules.push(classRule(util(`space-gap--${key}`), `  gap: var(--vx-space-${key});`));
+    rules.push(classRule(util(`space-inline-start--${key}`), `  padding-inline-start: var(--vx-space-${key});`));
+    rules.push(classRule(util(`space-inline-end--${key}`), `  padding-inline-end: var(--vx-space-${key});`));
+    rules.push(classRule(util(`space-block-start--${key}`), `  padding-block-start: var(--vx-space-${key});`));
+    rules.push(classRule(util(`space-block-end--${key}`), `  padding-block-end: var(--vx-space-${key});`));
   }
 
   for (const key of Object.keys(t.size)) {
-    rules.push(classRule(`u-measure-w--${key}`, `  width: var(--vx-size-${key});`));
-    rules.push(classRule(`u-measure-h--${key}`, `  height: var(--vx-size-${key});`));
-    rules.push(classRule(`u-measure-maxw--${key}`, `  max-width: var(--vx-size-${key});`));
-    rules.push(classRule(`u-measure-minw--${key}`, `  min-width: var(--vx-size-${key});`));
+    rules.push(classRule(util(`measure-w--${key}`), `  width: var(--vx-size-${key});`));
+    rules.push(classRule(util(`measure-h--${key}`), `  height: var(--vx-size-${key});`));
+    rules.push(classRule(util(`measure-maxw--${key}`), `  max-width: var(--vx-size-${key});`));
+    rules.push(classRule(util(`measure-minw--${key}`), `  min-width: var(--vx-size-${key});`));
   }
 
-  const typeScale = {
-    t1: '0.875rem',
-    t2: '1rem',
-    t3: '1.125rem',
-    t4: '1.375rem',
-    t5: '1.75rem',
-    t6: '2.25rem',
-    t7: '3rem'
-  };
-
-  for (const key of Object.keys(typeScale)) {
-    rules.push(
-      classRule(`u-type-scale--${key}`, `  font-size: ${typeScale[key as keyof typeof typeScale]};`)
-    );
+  for (const key of Object.keys(t.typeScale)) {
+    rules.push(classRule(util(`type-scale--${key}`), `  font-size: var(--vx-typeScale-${key});`));
   }
 
   for (const key of Object.keys(t.radius)) {
-    rules.push(classRule(`u-radius--${key}`, `  border-radius: var(--vx-radius-${key});`));
+    rules.push(classRule(util(`radius--${key}`), `  border-radius: var(--vx-radius-${key});`));
   }
 
   for (const key of Object.keys(t.blur)) {
-    rules.push(classRule(`u-blur--${key}`, `  backdrop-filter: blur(var(--vx-blur-${key}));`));
+    rules.push(classRule(util(`blur--${key}`), `  backdrop-filter: blur(var(--vx-blur-${key}));`));
   }
 
   for (const key of Object.keys(t.glow)) {
-    rules.push(classRule(`u-glow--${key}`, `  box-shadow: var(--vx-glow-${key});`));
+    rules.push(classRule(util(`glow--${key}`), `  box-shadow: var(--vx-glow-${key});`));
   }
 
-  rules.push(classRule('u-tone-ink--main', '  color: var(--vx-ink);'));
-  rules.push(classRule('u-tone-ink--mute', '  color: var(--vx-ink-muted);'));
-  rules.push(classRule('u-tone-ink--accent', '  color: var(--vx-accent);'));
-  rules.push(classRule('u-tone-surface--1', '  background: var(--vx-surface-1);'));
-  rules.push(classRule('u-tone-surface--2', '  background: var(--vx-surface-2);'));
-  rules.push(classRule('u-tone-surface--3', '  background: var(--vx-surface-3);'));
-  rules.push(classRule('u-tone-line--1', '  border-color: var(--vx-line-1);'));
-  rules.push(classRule('u-tone-line--2', '  border-color: var(--vx-line-2);'));
+  rules.push(classRule(util('tone-ink--main'), '  color: var(--vx-ink);'));
+  rules.push(classRule(util('tone-ink--mute'), '  color: var(--vx-ink-muted);'));
+  rules.push(classRule(util('tone-ink--accent'), '  color: var(--vx-accent);'));
+  rules.push(classRule(util('tone-surface--1'), '  background: var(--vx-surface-1);'));
+  rules.push(classRule(util('tone-surface--2'), '  background: var(--vx-surface-2);'));
+  rules.push(classRule(util('tone-surface--3'), '  background: var(--vx-surface-3);'));
+  rules.push(classRule(util('tone-line--1'), '  border-color: var(--vx-line-1);'));
+  rules.push(classRule(util('tone-line--2'), '  border-color: var(--vx-line-2);'));
+  rules.push(classRule(util('focus-ring'), '  outline: 2px solid var(--vx-accent);\n  outline-offset: 2px;'));
 
-  rules.push(
-    classRule(
-      'u-glass--1',
-      '  background: var(--vx-surface-1);\n  backdrop-filter: blur(var(--vx-blur-b3));'
-    )
-  );
-  rules.push(
-    classRule(
-      'u-glass--2',
-      '  background: var(--vx-surface-2);\n  backdrop-filter: blur(var(--vx-blur-b2));'
-    )
-  );
+  rules.push(classRule(util('flow-stack--s2'), '  display: flex;\n  flex-direction: column;\n  gap: var(--vx-space-s2);'));
+  rules.push(classRule(util('flow-stack--s3'), '  display: flex;\n  flex-direction: column;\n  gap: var(--vx-space-s3);'));
+  rules.push(classRule(util('flow-stack--s4'), '  display: flex;\n  flex-direction: column;\n  gap: var(--vx-space-s4);'));
+  rules.push(classRule(util('flow-row--s2'), '  display: flex;\n  flex-direction: row;\n  gap: var(--vx-space-s2);'));
+  rules.push(classRule(util('flow-row--s3'), '  display: flex;\n  flex-direction: row;\n  gap: var(--vx-space-s3);'));
+  rules.push(classRule(util('flow-row--s4'), '  display: flex;\n  flex-direction: row;\n  gap: var(--vx-space-s4);'));
+  rules.push(classRule(util('flow-cluster--s2'), '  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: var(--vx-space-s2);'));
+  rules.push(classRule(util('flow-cluster--s3'), '  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: var(--vx-space-s3);'));
+  rules.push(classRule(util('flow-cluster--s4'), '  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: var(--vx-space-s4);'));
+  rules.push(classRule(util('flow-center'), '  display: grid;\n  place-items: center;'));
 
+  rules.push(classRule(util('grid--2'), '  display: grid;\n  grid-template-columns: repeat(2, minmax(0, 1fr));\n  gap: var(--vx-space-s4);'));
+  rules.push(classRule(util('grid--3'), '  display: grid;\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  gap: var(--vx-space-s4);'));
+  rules.push(classRule(util('grid--4'), '  display: grid;\n  grid-template-columns: repeat(4, minmax(0, 1fr));\n  gap: var(--vx-space-s4);'));
+
+  rules.push(classRule(util('cq'), '  container-type: inline-size;\n  container-name: vx;'));
+  rules.push(classRule(util('glass--1'), '  background: var(--vx-surface-1);\n  backdrop-filter: blur(var(--vx-blur-b3));'));
+  rules.push(classRule(util('glass--2'), '  background: var(--vx-surface-2);\n  backdrop-filter: blur(var(--vx-blur-b2));'));
   rules.push(
     classRule(
-      'u-noise--fine',
+      util('noise--fine'),
       '  background-image: repeating-linear-gradient(45deg, rgba(255,255,255,var(--vx-noise-fine)) 0 1px, transparent 1px 3px);\n  background-size: 120px 120px;'
     )
   );
 
-  rules.push(classRule('u-flow-stack--s2', '  display: flex;\n  flex-direction: column;\n  gap: var(--vx-space-s2);'));
-  rules.push(classRule('u-flow-stack--s4', '  display: flex;\n  flex-direction: column;\n  gap: var(--vx-space-s4);'));
-  rules.push(classRule('u-flow-row--s2', '  display: flex;\n  flex-direction: row;\n  gap: var(--vx-space-s2);'));
-  rules.push(classRule('u-flow-row--s4', '  display: flex;\n  flex-direction: row;\n  gap: var(--vx-space-s4);'));
-  rules.push(classRule('u-flow-center', '  display: grid;\n  place-items: center;'));
-  rules.push(classRule('u-grid--2', '  display: grid;\n  grid-template-columns: repeat(2, minmax(0, 1fr));\n  gap: var(--vx-space-s4);'));
-  rules.push(classRule('u-grid--3', '  display: grid;\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  gap: var(--vx-space-s4);'));
-  rules.push(classRule('u-container', '  width: 100%;\n  max-width: 72rem;\n  margin-inline: auto;\n  padding-inline: var(--vx-space-s4);'));
-  rules.push(classRule('u-cq', '  container-type: inline-size;\n  container-name: vx;'));
+  rules.push(classRule(util('safe-in--top'), '  padding-top: env(safe-area-inset-top);'));
+  rules.push(classRule(util('safe-in--bottom'), '  padding-bottom: env(safe-area-inset-bottom);'));
+  rules.push(classRule(util('safe-in--left'), '  padding-left: env(safe-area-inset-left);'));
+  rules.push(classRule(util('safe-in--right'), '  padding-right: env(safe-area-inset-right);'));
+  rules.push(
+    classRule(
+      util('safe-in--inline'),
+      '  padding-inline: env(safe-area-inset-left) env(safe-area-inset-right);'
+    )
+  );
+  rules.push(
+    classRule(
+      util('safe-in--block'),
+      '  padding-block: env(safe-area-inset-top) env(safe-area-inset-bottom);'
+    )
+  );
 
-  rules.push(classRule('u-sr-only', '  position: absolute;\n  width: 1px;\n  height: 1px;\n  padding: 0;\n  margin: -1px;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n  border: 0;'));
-  rules.push(classRule('u-focus-ring', '  outline: 2px solid var(--vx-accent);\n  outline-offset: 2px;'));
+  rules.push(classRule(state('hidden'), '  display: none !important;'));
+  rules.push(classRule(state('open'), '  display: block;'));
+  rules.push(classRule(state('muted'), '  opacity: 0.7;'));
+  rules.push(classRule(state('disabled'), '  pointer-events: none;\n  opacity: 0.6;'));
 
-  rules.push(classRule('s-hidden', '  display: none !important;'));
-  rules.push(classRule('s-open', '  display: block;'));
-  rules.push(classRule('s-muted', '  opacity: 0.7;'));
-  rules.push(classRule('s-disabled', '  pointer-events: none;\n  opacity: 0.6;'));
+  rules.push(classRule(motion('fade-1'), '  animation: vx-fade-in var(--vx-duration-d3) var(--vx-easing-e2) both;'));
+  rules.push(classRule(motion('glow-pulse'), '  animation: vx-glow-pulse 2.2s ease-in-out infinite;'));
 
-  rules.push(classRule('m-fade-1', '  animation: vx-fade-in var(--vx-duration-d3) var(--vx-easing-e2) both;'));
-  rules.push(classRule('m-glow-pulse', '  animation: vx-glow-pulse 2.2s ease-in-out infinite;'));
-
-  for (const [bp, width] of Object.entries(framework.breakpoints)) {
-    const bpRules: string[] = [];
-    for (const key of Object.keys(t.space)) {
-      bpRules.push(classRule(`u-at-${bp}--space-in--${key}`, `  padding: var(--vx-space-${key});`));
-      bpRules.push(classRule(`u-at-${bp}--space-out--${key}`, `  margin: var(--vx-space-${key});`));
-      bpRules.push(classRule(`u-at-${bp}--space-gap--${key}`, `  gap: var(--vx-space-${key});`));
-    }
-    bpRules.push(classRule(`u-at-${bp}--grid--2`, '  display: grid;\n  grid-template-columns: repeat(2, minmax(0, 1fr));\n  gap: var(--vx-space-s4);'));
-    bpRules.push(classRule(`u-at-${bp}--grid--3`, '  display: grid;\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  gap: var(--vx-space-s4);'));
-    rules.push(`@media (min-width: ${width}) {\n${bpRules.join('')}\n}\n`);
-  }
-
-  return `@layer utilities {\n${rules.join('')}\n}\n`;
+  return `@layer lattice {\n${rules.join('')}\n}\n`;
 };
 
 const generateAtomicUtilities = () => {
   const framework = getFramework();
   const t = framework.tokens;
+  const utilPrefix = framework.classPrefix.utilities ?? 'vxu-';
+  const statePrefix = framework.classPrefix.states ?? 'vxs-';
+  const themePrefix = framework.classPrefix.themes ?? 'vxt-';
+  const groupClass = `${statePrefix}group`;
+  const peerClass = `${statePrefix}peer`;
   const utilities: UtilityRule[] = [];
 
   const addUtil = (name: string, body: string, selectorTemplate = '.{{class}}{{suffix}}') => {
@@ -190,7 +200,7 @@ const generateAtomicUtilities = () => {
 
   const buildSelector = (rule: UtilityRule, className: string, suffix = '') =>
     rule.selectorTemplate
-      .replace('{{class}}', escapeClassName(className))
+      .replace('{{class}}', escapeClassName(`${utilPrefix}${className}`))
       .replace('{{suffix}}', suffix);
 
   const renderRule = (rule: UtilityRule, className: string, suffix = '') =>
@@ -916,19 +926,19 @@ const generateAtomicUtilities = () => {
   }
 
   const pseudoVariants = [
-    { prefix: 'hover', suffix: ':hover' },
-    { prefix: 'focus', suffix: ':focus' },
-    { prefix: 'focus-visible', suffix: ':focus-visible' },
-    { prefix: 'active', suffix: ':active' }
+    { suffix: '__hover', pseudo: ':hover' },
+    { suffix: '__focus', pseudo: ':focus' },
+    { suffix: '__focus-visible', pseudo: ':focus-visible' },
+    { suffix: '__active', pseudo: ':active' }
   ];
   for (const variant of pseudoVariants) {
     for (const rule of utilities) {
-      rules.push(renderRule(rule, `${variant.prefix}:${rule.name}`, variant.suffix));
+      rules.push(renderRule(rule, `${rule.name}${variant.suffix}`, variant.pseudo));
     }
   }
 
   for (const rule of utilities) {
-    const className = `disabled:${rule.name}`;
+    const className = `${rule.name}__disabled`;
     const selectors = [
       buildSelector(rule, className, ':disabled'),
       buildSelector(rule, className, '[aria-disabled="true"]')
@@ -937,38 +947,42 @@ const generateAtomicUtilities = () => {
   }
 
   for (const rule of utilities) {
-    rules.push(renderWrappedRule('.group:hover', rule, `group-hover:${rule.name}`));
-    rules.push(renderWrappedRule('.peer:checked ~', rule, `peer-checked:${rule.name}`));
-    rules.push(renderRule(rule, `aria-expanded:${rule.name}`, '[aria-expanded="true"]'));
-    rules.push(renderRule(rule, `data-state-open:${rule.name}`, '[data-state="open"]'));
-    rules.push(renderRule(rule, `data-state-closed:${rule.name}`, '[data-state="closed"]'));
-    rules.push(renderWrappedRule('.t-dark', rule, `dark:${rule.name}`));
-    rules.push(renderWrappedRule('.t-contrast', rule, `contrast:${rule.name}`));
-    rules.push(renderWrappedRule('[dir="rtl"]', rule, `rtl:${rule.name}`));
+    rules.push(renderWrappedRule(`.${groupClass}:hover`, rule, `${rule.name}__group-hover`));
+    rules.push(renderWrappedRule(`.${peerClass}:checked ~`, rule, `${rule.name}__peer-checked`));
+    rules.push(renderRule(rule, `${rule.name}__aria-expanded`, '[aria-expanded="true"]'));
+    rules.push(renderRule(rule, `${rule.name}__data-open`, '[data-vx-state="open"]'));
+    rules.push(renderRule(rule, `${rule.name}__data-closed`, '[data-vx-state="closed"]'));
+    rules.push(renderWrappedRule(`.${themePrefix}dark`, rule, `${rule.name}__theme-dark`));
+    rules.push(renderWrappedRule(`.${themePrefix}light`, rule, `${rule.name}__theme-light`));
+    rules.push(renderWrappedRule(`.${themePrefix}contrast`, rule, `${rule.name}__theme-contrast`));
+    rules.push(renderWrappedRule('[dir="rtl"]', rule, `${rule.name}__rtl`));
   }
 
-  const breakpoints: Record<string, string | undefined> = {
-    sm: framework.breakpoints.s,
-    md: framework.breakpoints.m,
-    lg: framework.breakpoints.l,
-    xl: framework.breakpoints.xl,
-    '2xl': framework.breakpoints['2xl']
-  };
-
-  for (const [prefix, width] of Object.entries(breakpoints)) {
+  for (const [key, width] of Object.entries(framework.breakpoints)) {
     if (!width) {
       continue;
     }
     const bpRules: string[] = [];
     for (const rule of utilities) {
-      bpRules.push(renderRule(rule, `${prefix}:${rule.name}`));
+      bpRules.push(renderRule(rule, `${rule.name}__at-${key}`));
     }
     rules.push(`@media (min-width: ${width}) {\n${bpRules.join('')}\n}\n`);
   }
 
+  for (const [key, width] of Object.entries(t.container ?? {})) {
+    if (!width) {
+      continue;
+    }
+    const cqRules: string[] = [];
+    for (const rule of utilities) {
+      cqRules.push(renderRule(rule, `${rule.name}__cq-${key}`));
+    }
+    rules.push(`@container (min-width: ${width}) {\n${cqRules.join('')}\n}\n`);
+  }
+
   const motionSafeRules: string[] = [];
   for (const rule of utilities) {
-    motionSafeRules.push(renderRule(rule, `motion-safe:${rule.name}`));
+    motionSafeRules.push(renderRule(rule, `${rule.name}__motion-ok`));
   }
   rules.push(
     `@media (prefers-reduced-motion: no-preference) {\n${motionSafeRules.join('')}\n}\n`
@@ -976,11 +990,29 @@ const generateAtomicUtilities = () => {
 
   const motionReduceRules: string[] = [];
   for (const rule of utilities) {
-    motionReduceRules.push(renderRule(rule, `motion-reduce:${rule.name}`));
+    motionReduceRules.push(renderRule(rule, `${rule.name}__motion-reduce`));
   }
   rules.push(`@media (prefers-reduced-motion: reduce) {\n${motionReduceRules.join('')}\n}\n`);
 
-  return `@layer utilities {\n${rules.join('')}\n}\n`;
+  const printRules: string[] = [];
+  for (const rule of utilities) {
+    printRules.push(renderRule(rule, `${rule.name}__print`));
+  }
+  rules.push(`@media print {\n${printRules.join('')}\n}\n`);
+
+  const forcedRules: string[] = [];
+  for (const rule of utilities) {
+    forcedRules.push(renderRule(rule, `${rule.name}__forced`));
+  }
+  rules.push(`@media (forced-colors: active) {\n${forcedRules.join('')}\n}\n`);
+
+  const contrastRules: string[] = [];
+  for (const rule of utilities) {
+    contrastRules.push(renderRule(rule, `${rule.name}__contrast`));
+  }
+  rules.push(`@media (prefers-contrast: more) {\n${contrastRules.join('')}\n}\n`);
+
+  return `@layer lattice {\n${rules.join('')}\n}\n`;
 };
 
 export const buildOutput = async () => {

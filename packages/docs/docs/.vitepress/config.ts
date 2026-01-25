@@ -3,14 +3,15 @@ import { defineConfig } from 'vitepress';
 export default defineConfig({
   lang: 'en-US',
   title: 'Velynx UI',
-  description: 'A glassmorphism-first utility and component framework.',
+  description: 'A hybrid utility + component framework with a glass-first aesthetic.',
   themeConfig: {
     nav: [
       { text: 'Overview', link: '/' },
       { text: 'Quickstart', link: '/quickstart' },
       { text: 'Utilities', link: '/utilities' },
       { text: 'Components', link: '/components' },
-      { text: 'Interactivity', link: '/interactivity' }
+      { text: 'Interactivity', link: '/interactivity' },
+      { text: 'Audit', link: '/framework-audit' }
     ],
     sidebar: [
       { text: 'Getting Started', items: [
@@ -35,6 +36,7 @@ export default defineConfig({
       ] },
       { text: 'Project', items: [
         { text: 'Contributing', link: '/contributing' },
+        { text: 'Framework Audit', link: '/framework-audit' },
         { text: 'Changelog', link: '/changelog' },
         { text: 'Roadmap', link: '/roadmap' }
       ] }

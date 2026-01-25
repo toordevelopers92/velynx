@@ -9,16 +9,18 @@ Velynx is a glassmorphism-first front-end framework with utilities, components, 
 
 ## Class grammar
 
-Atomic utilities use short class names like `p-4`, `text-primary`, and `grid-cols-3`. Legacy utilities are still available with `u-<family>-<variant>--<value>`.
+Utilities use the `vxu-` prefix and come in two flavors: macro layouts (flow, grid, glass) and micro utilities that mirror CSS properties.
 
 Examples:
 
-- `p-4` padding
-- `text-primary` color
-- `bg-surface-2` glass background
-- `sm:grid-cols-3` responsive variant
+- `vxu-space-in--s4` padding using a token
+- `vxu-grid-cols-3` three column grid
+- `vxu-text-primary` primary text color
+- `vxu-p-4__at-m` responsive spacing variant
 
-Component classes use `c-` and states use `s-`. Motion classes use `m-` and theme classes use `t-`.
+Components use `vxc-`, states and variants use `vxs-`, motion helpers use `vxm-`, and themes use `vxt-`.
+
+Variants are suffix-based: `__hover`, `__focus-visible`, `__at-m`, `__theme-contrast`, `__motion-reduce`, `__print`.
 
 ## Quick start
 
@@ -62,3 +64,6 @@ Release steps:
 ## License
 
 MIT
+
+
+

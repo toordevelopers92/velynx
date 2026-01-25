@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="t-dark">
+<html lang="en" class="vxt-dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -18,44 +18,44 @@
     </style>
   </head>
   <body>
-    <main class="c-card auth-card u-flow-stack--s3">
-      <div class="u-flow-row--s2" style="justify-content: space-between;">
-        <h1 class="u-type-scale--t5">Access node</h1>
-        <label class="c-switch">
+    <main class="vxc-card auth-card vxu-flow-stack--s3">
+      <div class="vxu-flow-row--s2" style="justify-content: space-between;">
+        <h1 class="vxu-type-scale--t5">Access node</h1>
+        <label class="vxc-switch">
           <input id="themeToggle" type="checkbox" />
           <span>Light</span>
         </label>
       </div>
 
-      <div class="c-field">
+      <div class="vxc-field">
         <label for="email">Email</label>
-        <input id="email" class="c-input" type="email" placeholder="crew@velynx.io" />
+        <input id="email" class="vxc-input" type="email" placeholder="crew@velynx.io" />
       </div>
 
-      <div class="c-field">
+      <div class="vxc-field">
         <label for="password">Password</label>
-        <div class="c-input-group">
-          <input id="password" class="c-input" type="password" placeholder="••••••" />
-          <button class="c-button" id="togglePass">Show</button>
+        <div class="vxc-input-group">
+          <input id="password" class="vxc-input" type="password" placeholder="••••••" />
+          <button class="vxc-button" id="togglePass">Show</button>
         </div>
-        <small class="u-tone-ink--mute">Minimum 8 characters.</small>
+        <small class="vxu-tone-ink--mute">Minimum 8 characters.</small>
       </div>
 
-      <div class="u-flow-row--s2">
-        <label class="c-check"><input type="checkbox" /> Remember</label>
-        <label class="c-radio"><input type="radio" name="mode" checked /> Login</label>
-        <label class="c-radio"><input type="radio" name="mode" /> Register</label>
+      <div class="vxu-flow-row--s2">
+        <label class="vxc-check"><input type="checkbox" /> Remember</label>
+        <label class="vxc-radio"><input type="radio" name="mode" checked /> Login</label>
+        <label class="vxc-radio"><input type="radio" name="mode" /> Register</label>
       </div>
 
-      <button class="c-button c-button--solid">Authenticate</button>
+      <button class="vxc-button vxs-variant-solid">Authenticate</button>
     </main>
 
     <script>
       const toggle = document.getElementById('themeToggle');
       const root = document.documentElement;
       toggle.addEventListener('change', () => {
-        root.classList.toggle('t-light', toggle.checked);
-        root.classList.toggle('t-dark', !toggle.checked);
+        root.classList.toggle('vxt-light', toggle.checked);
+        root.classList.toggle('vxt-dark', !toggle.checked);
       });
 
       const pass = document.getElementById('password');
@@ -68,3 +68,6 @@
     </script>
   </body>
 </html>
+
+
+

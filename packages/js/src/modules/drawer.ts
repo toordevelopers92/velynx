@@ -9,12 +9,12 @@ export class Drawer {
   }
 
   open() {
-    toggleClass(this.root, 's-open', true);
+    toggleClass(this.root, 'vxs-open', true);
     setAriaHidden(this.root, false);
   }
 
   close() {
-    toggleClass(this.root, 's-open', false);
+    toggleClass(this.root, 'vxs-open', false);
     setAriaHidden(this.root, true);
   }
 
@@ -40,3 +40,4 @@ export class Drawer {
     });
   }
 }
+

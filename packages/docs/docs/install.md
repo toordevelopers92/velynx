@@ -26,3 +26,6 @@ autoInit();
 ## Bundlers
 
 Velynx ships ESM by default, with a UMD build for legacy bundlers. Tree-shaking works on named imports from `@toordevelopersinc/velynx-js`.
+
+
+

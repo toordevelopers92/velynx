@@ -18,12 +18,12 @@ export class Navbar {
       this.toggle.setAttribute('aria-controls', this.menu.id);
     }
 
-    const isOpen = this.menu.classList.contains('s-open');
+    const isOpen = this.menu.classList.contains('vxs-open');
     setAriaExpanded(this.toggle, isOpen);
     setAriaHidden(this.menu, !isOpen);
 
     this.toggle.addEventListener('click', () => {
-      const nextOpen = !this.menu?.classList.contains('s-open');
+      const nextOpen = !this.menu?.classList.contains('vxs-open');
       if (nextOpen) {
         this.open();
       } else {
@@ -38,7 +38,7 @@ export class Navbar {
     });
 
     document.addEventListener('click', (event) => {
-      if (!this.menu || !this.menu.classList.contains('s-open')) {
+      if (!this.menu || !this.menu.classList.contains('vxs-open')) {
         return;
       }
       if (this.root.contains(event.target as Node)) {
@@ -52,7 +52,7 @@ export class Navbar {
     if (!this.menu) {
       return;
     }
-    toggleClass(this.menu, 's-open', true);
+    toggleClass(this.menu, 'vxs-open', true);
     setAriaExpanded(this.toggle, true);
     setAriaHidden(this.menu, false);
   }
@@ -61,7 +61,7 @@ export class Navbar {
     if (!this.menu) {
       return;
     }
-    toggleClass(this.menu, 's-open', false);
+    toggleClass(this.menu, 'vxs-open', false);
     setAriaExpanded(this.toggle, false);
     setAriaHidden(this.menu, true);
   }
@@ -72,3 +72,4 @@ export class Navbar {
     });
   }
 }
+

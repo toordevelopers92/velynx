@@ -10,7 +10,7 @@ export class Accordion {
   toggle(panelId: string) {
     this.root.querySelectorAll<HTMLElement>('[data-vx-panel]').forEach((panel) => {
       const isActive = panel.getAttribute('data-vx-panel') === panelId;
-      toggleClass(panel, 's-hidden', !isActive);
+      toggleClass(panel, 'vxs-hidden', !isActive);
       setAriaHidden(panel, !isActive);
     });
     this.root.querySelectorAll<HTMLElement>('[data-vx-trigger]').forEach((trigger) => {
@@ -23,7 +23,7 @@ export class Accordion {
     document.querySelectorAll<HTMLElement>('[data-vx="accordion"]').forEach((root) => {
       const accordion = new Accordion(root);
       root.querySelectorAll<HTMLElement>('[data-vx-panel]').forEach((panel) => {
-        toggleClass(panel, 's-hidden', true);
+        toggleClass(panel, 'vxs-hidden', true);
         setAriaHidden(panel, true);
       });
       root.querySelectorAll<HTMLElement>('[data-vx-trigger]').forEach((trigger) => {
@@ -35,3 +35,4 @@ export class Accordion {
     });
   }
 }
+

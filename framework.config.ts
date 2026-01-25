@@ -1,11 +1,11 @@
 export const framework = {
   name: 'velynx',
   classPrefix: {
-    utilities: 'u-',
-    components: 'c-',
-    states: 's-',
-    motion: 'm-',
-    themes: 't-'
+    utilities: 'vxu-',
+    components: 'vxc-',
+    states: 'vxs-',
+    motion: 'vxm-',
+    themes: 'vxt-'
   },
   breakpoints: {
     s: '36rem',
@@ -19,6 +19,38 @@ export const framework = {
       sans: '"Space Grotesk", "Segoe UI", sans-serif',
       serif: '"Cormorant Garamond", "Times New Roman", serif',
       mono: '"JetBrains Mono", "Fira Code", monospace'
+    },
+    typeScale: {
+      t1: '0.875rem',
+      t2: '1rem',
+      t3: '1.125rem',
+      t4: '1.375rem',
+      t5: '1.75rem',
+      t6: '2.25rem',
+      t7: '3rem'
+    },
+    weight: {
+      thin: '100',
+      light: '300',
+      regular: '400',
+      medium: '500',
+      semibold: '600',
+      bold: '700',
+      black: '900'
+    },
+    leading: {
+      tight: '1.1',
+      snug: '1.3',
+      regular: '1.5',
+      relaxed: '1.65',
+      loose: '1.8'
+    },
+    tracking: {
+      tight: '-0.02em',
+      regular: '0',
+      wide: '0.1em',
+      wider: '0.2em',
+      widest: '0.3em'
     },
     space: {
       s0: '0',
@@ -40,6 +72,13 @@ export const framework = {
       p75: '75%',
       p100: '100%',
       vw50: '50vw'
+    },
+    icon: {
+      i1: '0.75rem',
+      i2: '1rem',
+      i3: '1.25rem',
+      i4: '1.5rem',
+      i5: '2rem'
     },
     radius: {
       r1: '0.25rem',
@@ -98,6 +137,12 @@ export const framework = {
       z1: '10',
       z2: '100',
       z3: '1000'
+    },
+    container: {
+      c1: '24rem',
+      c2: '32rem',
+      c3: '48rem',
+      c4: '64rem'
     },
     palette: {
       ink1: '#f8f7ff',

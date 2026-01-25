@@ -10,12 +10,12 @@ export class Tabs {
   activate(id: string) {
     this.root.querySelectorAll<HTMLElement>('[data-vx-tab]').forEach((tab) => {
       const isActive = tab.getAttribute('data-vx-tab') === id;
-      toggleClass(tab, 's-active', isActive);
+      toggleClass(tab, 'vxs-active', isActive);
       setAriaExpanded(tab, isActive);
     });
     this.root.querySelectorAll<HTMLElement>('[data-vx-panel]').forEach((panel) => {
       const isActive = panel.getAttribute('data-vx-panel') === id;
-      toggleClass(panel, 's-hidden', !isActive);
+      toggleClass(panel, 'vxs-hidden', !isActive);
       setAriaHidden(panel, !isActive);
     });
   }
@@ -40,3 +40,4 @@ export class Tabs {
     });
   }
 }
+

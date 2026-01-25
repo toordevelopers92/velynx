@@ -4,9 +4,9 @@ Tokens live in `framework.config.ts` and compile into CSS variables in `velynx.t
 
 ## Theme classes
 
-- `t-dark` is the default dark-first theme.
-- `t-light` switches to the light palette.
-- `t-contrast` increases contrast and border visibility.
+- `vxt-dark` is the default dark-first theme.
+- `vxt-light` switches to the light palette.
+- `vxt-contrast` increases contrast and border visibility.
 
 ## Glass tokens
 
@@ -19,6 +19,18 @@ Tokens live in `framework.config.ts` and compile into CSS variables in `velynx.t
 ## Typography tokens
 
 - Font families: `--vx-font-sans`, `--vx-font-serif`, `--vx-font-mono`
+- Type scale: `--vx-typeScale-t1` through `--vx-typeScale-t7`
+- Weights: `--vx-weight-thin` through `--vx-weight-black`
+- Leading: `--vx-leading-tight` through `--vx-leading-loose`
+- Tracking: `--vx-tracking-tight` through `--vx-tracking-widest`
+
+## Layout + size tokens
+
+- Spacing: `--vx-space-s0` through `--vx-space-s8`
+- Size scales: `--vx-size-c20`, `--vx-size-c40`, `--vx-size-p100`, `--vx-size-vw50`
+- Radius: `--vx-radius-r1` through `--vx-radius-r5`
+- Icon sizing: `--vx-icon-i1` through `--vx-icon-i5`
+- Container query sizes: `--vx-container-c1` through `--vx-container-c4`
 
 ## Shadow + ring tokens
 
@@ -42,3 +54,6 @@ Create a new theme by overriding semantic variables.
   --vx-accent: #78e6ff;
 }
 ```
+
+
+

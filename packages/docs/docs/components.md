@@ -1,70 +1,70 @@
 # Component catalog
 
-Components use the `c-` prefix. Variants are expressed with suffixes like `c-button--solid` or state helpers like `s-disabled`.
+Components use the `vxc-` prefix. Variants are expressed with suffixes like `vxs-variant-solid` or state helpers like `vxs-disabled`.
 
 ## Button
 
 ```html
-<button class="c-button">Ghost</button>
-<button class="c-button c-button--solid">Solid</button>
-<button class="c-button c-button--outline">Outline</button>
-<button class="c-button c-button--ghost">Bare</button>
-<button class="c-button c-button--link">Link</button>
-<button class="c-button c-button--sm">Small</button>
-<button class="c-button c-button--lg">Large</button>
-<button class="c-button c-icon-button" aria-label="Settings">⚙</button>
+<button class="vxc-button">Ghost</button>
+<button class="vxc-button vxs-variant-solid">Solid</button>
+<button class="vxc-button vxs-variant-outline">Outline</button>
+<button class="vxc-button vxs-variant-ghost">Bare</button>
+<button class="vxc-button vxs-variant-link">Link</button>
+<button class="vxc-button vxs-size-sm">Small</button>
+<button class="vxc-button vxs-size-lg">Large</button>
+<button class="vxc-button vxc-icon-button" aria-label="Settings">⚙</button>
 ```
 
 ## Button groups
 
 ```html
-<div class="c-button-group">
-  <button class="c-button">Left</button>
-  <button class="c-button">Center</button>
-  <button class="c-button">Right</button>
+<div class="vxc-button-group">
+  <button class="vxc-button">Left</button>
+  <button class="vxc-button">Center</button>
+  <button class="vxc-button">Right</button>
 </div>
 ```
 
 ## Segmented control
 
 ```html
-<div class="c-segmented">
-  <button class="c-segmented-item s-active">Daily</button>
-  <button class="c-segmented-item">Weekly</button>
-  <button class="c-segmented-item">Monthly</button>
+<div class="vxc-segmented">
+  <button class="vxc-segmented-item vxs-active">Daily</button>
+  <button class="vxc-segmented-item">Weekly</button>
+  <button class="vxc-segmented-item">Monthly</button>
 </div>
 ```
 
 ## Badge and chip
 
 ```html
-<span class="c-badge">Beta</span>
-<span class="c-chip"><span class="c-badge">A</span> Operator</span>
+<span class="vxc-badge">Beta</span>
+<span class="vxc-chip"><span class="vxc-badge">A</span> Operator</span>
 ```
 
 ## Card
 
 ```html
-<article class="c-card u-flow-stack--s3">
-  <h3 class="u-type-scale--t4">Glass card</h3>
-  <p class="u-tone-ink--mute">Content with blur.</p>
+<article class="vxc-card vxu-flow-stack--s3">
+  <h3 class="vxu-type-scale--t4">Glass card</h3>
+  <p class="vxu-tone-ink--mute">Content with blur.</p>
 </article>
 ```
 
 ## Navbar + sidebar
 
 ```html
-<nav class="c-navbar" data-vx="navbar">
-  <div class="c-navbar-brand">Velynx</div>
-  <button class="c-navbar-toggle" data-vx-toggle aria-expanded="false">Menu</button>
-  <div class="c-navbar-menu" data-vx-menu id="vx-nav">
-    <div class="c-navbar-links">
+<nav class="vxc-navbar" data-vx="navbar">
+  <div class="vxc-navbar-brand">Velynx</div>
+  <button class="vxc-navbar-toggle" data-vx-toggle aria-expanded="false">Menu</button>
+  <div class="vxc-navbar-menu" data-vx-menu id="vx-nav">
+    <div class="vxc-navbar-links">
       <a href="#">Docs</a>
       <a href="#">Themes</a>
     </div>
-    <div class="c-navbar-actions">
-      <button class="c-button">Login</button>
-      <button class="c-button c-button--solid">Start</button>
+    <div class="vxc-navbar-actions">
+      <button class="vxc-button">Login</button>
+      <button class="vxc-button vxs-variant-solid">Start</button>
     </div>
   </div>
 </nav>
@@ -73,7 +73,7 @@ Components use the `c-` prefix. Variants are expressed with suffixes like `c-but
 ## Tables
 
 ```html
-<table class="c-table">
+<table class="vxc-table">
   <thead><tr><th>Node</th><th>Status</th></tr></thead>
   <tbody><tr><td>NX-01</td><td>Online</td></tr></tbody>
 </table>
@@ -82,69 +82,69 @@ Components use the `c-` prefix. Variants are expressed with suffixes like `c-but
 ## Forms
 
 ```html
-<div class="c-field">
+<div class="vxc-field">
   <label for="email">Email</label>
-  <input id="email" class="c-input" type="email" />
+  <input id="email" class="vxc-input" type="email" />
 </div>
 ```
 
 ```html
-<div class="c-form">
-  <div class="c-form-row">
-    <label class="c-label" for="name">Name</label>
-    <input id="name" class="c-input" type="text" />
-    <div class="c-help">Use your public name.</div>
+<div class="vxc-form">
+  <div class="vxc-form-row">
+    <label class="vxc-label" for="name">Name</label>
+    <input id="name" class="vxc-input" type="text" />
+    <div class="vxc-help">Use your public name.</div>
   </div>
-  <div class="c-form-row">
-    <label class="c-label" for="code">Invite</label>
-    <div class="c-input-group">
-      <span class="c-input-addon">VX</span>
-      <input id="code" class="c-input" type="text" />
+  <div class="vxc-form-row">
+    <label class="vxc-label" for="code">Invite</label>
+    <div class="vxc-input-group">
+      <span class="vxc-input-addon">VX</span>
+      <input id="code" class="vxc-input" type="text" />
     </div>
-    <div class="c-error">Invalid code.</div>
+    <div class="vxc-error">Invalid code.</div>
   </div>
 </div>
 ```
 
 ```html
-<label class="c-label" for="volume">Volume</label>
-<input id="volume" class="c-range" type="range" min="0" max="100" />
+<label class="vxc-label" for="volume">Volume</label>
+<input id="volume" class="vxc-range" type="range" min="0" max="100" />
 ```
 
 ```html
-<div class="c-file-drop">Drop files here or click to upload</div>
+<div class="vxc-file-drop">Drop files here or click to upload</div>
 ```
 
 ```html
-<div class="c-tag-input">
-  <span class="c-tag">Glass</span>
+<div class="vxc-tag-input">
+  <span class="vxc-tag">Glass</span>
   <input type="text" placeholder="Add tag" />
 </div>
 ```
 
 ```html
-<div class="c-rating">
-  <button class="c-rating-item s-active">★</button>
-  <button class="c-rating-item s-active">★</button>
-  <button class="c-rating-item">★</button>
-  <button class="c-rating-item">★</button>
-  <button class="c-rating-item">★</button>
+<div class="vxc-rating">
+  <button class="vxc-rating-item vxs-active">★</button>
+  <button class="vxc-rating-item vxs-active">★</button>
+  <button class="vxc-rating-item">★</button>
+  <button class="vxc-rating-item">★</button>
+  <button class="vxc-rating-item">★</button>
 </div>
 ```
 
 ```html
-<div class="c-otp">
-  <input class="c-input" maxlength="1" />
-  <input class="c-input" maxlength="1" />
-  <input class="c-input" maxlength="1" />
-  <input class="c-input" maxlength="1" />
-  <input class="c-input" maxlength="1" />
-  <input class="c-input" maxlength="1" />
+<div class="vxc-otp">
+  <input class="vxc-input" maxlength="1" />
+  <input class="vxc-input" maxlength="1" />
+  <input class="vxc-input" maxlength="1" />
+  <input class="vxc-input" maxlength="1" />
+  <input class="vxc-input" maxlength="1" />
+  <input class="vxc-input" maxlength="1" />
 </div>
 ```
 
 ```html
-<div class="c-validation-summary">
+<div class="vxc-validation-summary">
   <div>Fix the highlighted fields.</div>
 </div>
 ```
@@ -152,13 +152,13 @@ Components use the `c-` prefix. Variants are expressed with suffixes like `c-but
 ## Hero
 
 ```html
-<section class="c-hero">
-  <div class="c-hero-eyebrow">Velynx OS</div>
-  <h1 class="c-hero-title">Futuristic glass UI</h1>
-  <p class="c-hero-subtitle">Build portals, dashboards, and apps with a neon-glass system.</p>
-  <div class="c-hero-actions">
-    <button class="c-button c-button--solid">Get started</button>
-    <button class="c-button">View docs</button>
+<section class="vxc-hero">
+  <div class="vxc-hero-eyebrow">Velynx OS</div>
+  <h1 class="vxc-hero-title">Futuristic glass UI</h1>
+  <p class="vxc-hero-subtitle">Build portals, dashboards, and apps with a neon-glass system.</p>
+  <div class="vxc-hero-actions">
+    <button class="vxc-button vxs-variant-solid">Get started</button>
+    <button class="vxc-button">View docs</button>
   </div>
 </section>
 ```
@@ -166,23 +166,23 @@ Components use the `c-` prefix. Variants are expressed with suffixes like `c-but
 ## Alerts
 
 ```html
-<div class="c-alert c-alert--info">
-  <div class="c-alert-title">Info</div>
-  <p class="u-tone-ink--mute">This is an informational alert.</p>
+<div class="vxc-alert vxs-tone-info">
+  <div class="vxc-alert-title">Info</div>
+  <p class="vxu-tone-ink--mute">This is an informational alert.</p>
 </div>
 ```
 
 ## Stats
 
 ```html
-<div class="c-stat-grid">
-  <div class="c-stat">
-    <div class="c-stat-value">42k</div>
-    <div class="c-stat-label">Active users</div>
+<div class="vxc-stat-grid">
+  <div class="vxc-stat">
+    <div class="vxc-stat-value">42k</div>
+    <div class="vxc-stat-label">Active users</div>
   </div>
-  <div class="c-stat">
-    <div class="c-stat-value">98%</div>
-    <div class="c-stat-label">Uptime</div>
+  <div class="vxc-stat">
+    <div class="vxc-stat-value">98%</div>
+    <div class="vxc-stat-label">Uptime</div>
   </div>
 </div>
 ```
@@ -190,16 +190,16 @@ Components use the `c-` prefix. Variants are expressed with suffixes like `c-but
 ## Feature grid
 
 ```html
-<div class="c-feature-grid">
-  <div class="c-feature-card">
-    <div class="c-feature-icon">FX</div>
-    <div class="c-feature-title">Neon glass</div>
-    <p class="u-tone-ink--mute">Blurred panels with layered glow.</p>
+<div class="vxc-feature-grid">
+  <div class="vxc-feature-card">
+    <div class="vxc-feature-icon">FX</div>
+    <div class="vxc-feature-title">Neon glass</div>
+    <p class="vxu-tone-ink--mute">Blurred panels with layered glow.</p>
   </div>
-  <div class="c-feature-card">
-    <div class="c-feature-icon">RX</div>
-    <div class="c-feature-title">Token driven</div>
-    <p class="u-tone-ink--mute">Design tokens for rapid theming.</p>
+  <div class="vxc-feature-card">
+    <div class="vxc-feature-icon">RX</div>
+    <div class="vxc-feature-title">Token driven</div>
+    <p class="vxu-tone-ink--mute">Design tokens for rapid theming.</p>
   </div>
 </div>
 ```
@@ -207,21 +207,21 @@ Components use the `c-` prefix. Variants are expressed with suffixes like `c-but
 ## Pricing
 
 ```html
-<div class="c-pricing-grid">
-  <div class="c-pricing-card">
+<div class="vxc-pricing-grid">
+  <div class="vxc-pricing-card">
     <h3>Starter</h3>
-    <div class="c-pricing-price">$0</div>
-    <div class="c-pricing-period">Forever</div>
-    <ul class="c-pricing-list">
+    <div class="vxc-pricing-price">$0</div>
+    <div class="vxc-pricing-period">Forever</div>
+    <ul class="vxc-pricing-list">
       <li>Core utilities</li>
       <li>Community themes</li>
     </ul>
   </div>
-  <div class="c-pricing-card s-featured">
+  <div class="vxc-pricing-card vxs-featured">
     <h3>Studio</h3>
-    <div class="c-pricing-price">$24</div>
-    <div class="c-pricing-period">Per month</div>
-    <ul class="c-pricing-list">
+    <div class="vxc-pricing-price">$24</div>
+    <div class="vxc-pricing-period">Per month</div>
+    <ul class="vxc-pricing-list">
       <li>Premium components</li>
       <li>Theme marketplace</li>
     </ul>
@@ -232,75 +232,75 @@ Components use the `c-` prefix. Variants are expressed with suffixes like `c-but
 ## CTA
 
 ```html
-<div class="c-cta">
+<div class="vxc-cta">
   <div>
-    <div class="c-hero-eyebrow">Ready?</div>
-    <h3 class="u-type-scale--t4">Launch your glass portal</h3>
+    <div class="vxc-hero-eyebrow">Ready?</div>
+    <h3 class="vxu-type-scale--t4">Launch your glass portal</h3>
   </div>
-  <button class="c-button c-button--solid">Deploy</button>
+  <button class="vxc-button vxs-variant-solid">Deploy</button>
 </div>
 ```
 
 ## Calendar (JS)
 
 ```html
-<div class="c-calendar" data-vx="calendar" data-vx-selected="2026-01-25"></div>
+<div class="vxc-calendar" data-vx="calendar" data-vx-selected="2026-01-25"></div>
 ```
 
 ## Menu
 
 ```html
-<div class="c-menu">
-  <div class="c-menu-item">Dashboard</div>
-  <div class="c-menu-item">Settings</div>
-  <div class="c-menu-divider"></div>
-  <div class="c-menu-item">Log out</div>
+<div class="vxc-menu">
+  <div class="vxc-menu-item">Dashboard</div>
+  <div class="vxc-menu-item">Settings</div>
+  <div class="vxc-menu-divider"></div>
+  <div class="vxc-menu-item">Log out</div>
 </div>
 ```
 
 ## Key/Value
 
 ```html
-<div class="c-key-value">
-  <div class="c-key">Status</div>
-  <div class="c-value">Online</div>
-  <div class="c-key">Region</div>
-  <div class="c-value">us-east</div>
+<div class="vxc-key-value">
+  <div class="vxc-key">Status</div>
+  <div class="vxc-value">Online</div>
+  <div class="vxc-key">Region</div>
+  <div class="vxc-value">us-east</div>
 </div>
 ```
 
 ## Spinner
 
 ```html
-<div class="c-spinner" aria-label="Loading"></div>
+<div class="vxc-spinner" aria-label="Loading"></div>
 ```
 
 ## Empty state
 
 ```html
-<div class="c-empty-state">
-  <div class="c-hero-eyebrow">No data</div>
-  <p class="u-tone-ink--mute">Add your first entry to populate the grid.</p>
-  <button class="c-button c-button--solid">Create</button>
+<div class="vxc-empty-state">
+  <div class="vxc-hero-eyebrow">No data</div>
+  <p class="vxu-tone-ink--mute">Add your first entry to populate the grid.</p>
+  <button class="vxc-button vxs-variant-solid">Create</button>
 </div>
 ```
 
 ## Code block
 
 ```html
-<pre class="c-code-block">pnpm add @toordevelopersinc/velynx</pre>
+<pre class="vxc-code-block">pnpm add @toordevelopersinc/velynx</pre>
 ```
 
 ## Footer
 
 ```html
-<footer class="c-footer">
-  <div class="c-footer-grid">
+<footer class="vxc-footer">
+  <div class="vxc-footer-grid">
     <div>
-      <div class="c-navbar-brand">Velynx</div>
-      <p class="u-tone-ink--mute">Glass UI system for web and mobile.</p>
+      <div class="vxc-navbar-brand">Velynx</div>
+      <p class="vxu-tone-ink--mute">Glass UI system for web and mobile.</p>
     </div>
-    <div class="c-footer-links">
+    <div class="vxc-footer-links">
       <a href="#">Docs</a>
       <a href="#">Themes</a>
       <a href="#">Support</a>
@@ -312,18 +312,18 @@ Components use the `c-` prefix. Variants are expressed with suffixes like `c-but
 ## App shell
 
 ```html
-<div class="c-app-shell">
-  <header class="c-app-topbar">
-    <div class="c-navbar-brand">Velynx</div>
-    <button class="c-button">Invite</button>
+<div class="vxc-app-shell">
+  <header class="vxc-app-topbar">
+    <div class="vxc-navbar-brand">Velynx</div>
+    <button class="vxc-button">Invite</button>
   </header>
-  <div class="c-app-body">
-    <aside class="c-app-sidebar">
-      <div class="c-menu-item">Overview</div>
-      <div class="c-menu-item">Projects</div>
+  <div class="vxc-app-body">
+    <aside class="vxc-app-sidebar">
+      <div class="vxc-menu-item">Overview</div>
+      <div class="vxc-menu-item">Projects</div>
     </aside>
-    <main class="c-app-main">
-      <div class="c-panel">Main content</div>
+    <main class="vxc-app-main">
+      <div class="vxc-panel">Main content</div>
     </main>
   </div>
 </div>
@@ -332,8 +332,8 @@ Components use the `c-` prefix. Variants are expressed with suffixes like `c-but
 ## Tabs (JS)
 
 ```html
-<div class="c-tabs" data-vx="tabs">
-  <div class="u-flow-row--s2">
+<div class="vxc-tabs" data-vx="tabs">
+  <div class="vxu-flow-row--s2">
     <button data-vx-tab="alpha">Alpha</button>
     <button data-vx-tab="beta">Beta</button>
   </div>
@@ -345,10 +345,10 @@ Components use the `c-` prefix. Variants are expressed with suffixes like `c-but
 ## Accordion (JS)
 
 ```html
-<div class="c-accordion" data-vx="accordion">
-  <div class="c-accordion-item">
-    <button class="c-accordion-trigger" data-vx-trigger="a1">Signal A</button>
-    <div class="c-accordion-panel" data-vx-panel="a1">Panel A</div>
+<div class="vxc-accordion" data-vx="accordion">
+  <div class="vxc-accordion-item">
+    <button class="vxc-accordion-trigger" data-vx-trigger="a1">Signal A</button>
+    <div class="vxc-accordion-panel" data-vx-panel="a1">Panel A</div>
   </div>
 </div>
 ```
@@ -356,10 +356,10 @@ Components use the `c-` prefix. Variants are expressed with suffixes like `c-but
 ## Modal (JS)
 
 ```html
-<button class="c-button" data-vx-open="modal-x">Open</button>
-<div class="c-modal" id="modal-x" data-vx="modal">
-  <div class="c-modal-panel">
-    <button class="c-button" data-vx-close="modal-x">Close</button>
+<button class="vxc-button" data-vx-open="modal-x">Open</button>
+<div class="vxc-modal" id="modal-x" data-vx="modal">
+  <div class="vxc-modal-panel">
+    <button class="vxc-button" data-vx-close="modal-x">Close</button>
   </div>
 </div>
 ```
@@ -367,10 +367,10 @@ Components use the `c-` prefix. Variants are expressed with suffixes like `c-but
 ## Dropdown (JS)
 
 ```html
-<div class="c-dropdown" data-vx="dropdown">
-  <button class="c-button" data-vx-toggle>Menu</button>
-  <div class="c-dropdown-menu" data-vx-menu>
-    <div class="c-list-item">Orbit</div>
+<div class="vxc-dropdown" data-vx="dropdown">
+  <button class="vxc-button" data-vx-toggle>Menu</button>
+  <div class="vxc-dropdown-menu" data-vx-menu>
+    <div class="vxc-list-item">Orbit</div>
   </div>
 </div>
 ```
@@ -378,14 +378,14 @@ Components use the `c-` prefix. Variants are expressed with suffixes like `c-but
 ## Toasts (JS)
 
 ```html
-<button class="c-button" data-vx-toast="signals" data-vx-toast-msg="Ping received">Notify</button>
-<div id="signals" data-vx="toast-stack" class="u-flow-stack--s2"></div>
+<button class="vxc-button" data-vx-toast="signals" data-vx-toast-msg="Ping received">Notify</button>
+<div id="signals" data-vx="toast-stack" class="vxu-flow-stack--s2"></div>
 ```
 
 ## Tooltip (JS)
 
 ```html
-<button class="c-button" data-vx-tooltip="Calibrate">Hover</button>
+<button class="vxc-button" data-vx-tooltip="Calibrate">Hover</button>
 ```
 
 ## Icons
@@ -396,3 +396,6 @@ or define your own symbols and reference them with `<use>`.
 ```html
 <svg width="24" height="24" aria-hidden="true"><use href="#vx-icon-spark"></use></svg>
 ```
+
+
+
