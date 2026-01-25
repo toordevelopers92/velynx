@@ -2,7 +2,13 @@
 
 ## Responsive utilities
 
-Use breakpoint prefixes to scope a utility:
+Atomic utilities use breakpoint prefixes:
+
+```html
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4"></div>
+```
+
+Legacy utilities use `u-at-` prefixes:
 
 ```html
 <div class="u-grid--2 u-at-l--grid--3"></div>
@@ -20,6 +26,10 @@ Use `u-cq` to opt into container queries. If container queries are unavailable, 
 
 ## RTL support
 
-Velynx uses logical properties for spacing utilities (`padding-inline`, `margin-inline`) where possible. For custom CSS, prefer logical properties like `margin-inline` and `inset-inline`.
+Velynx uses logical properties for spacing utilities (`padding-inline`, `margin-inline`) where possible. Atomic utilities also support an `rtl:` variant.
+
+```html
+<div class="text-left rtl:text-right"></div>
+```
 
 If you must use physical left/right values, wrap them in an `[dir="ltr"]` or `[dir="rtl"]` selector.

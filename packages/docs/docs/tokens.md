@@ -16,6 +16,20 @@ Tokens live in `framework.config.ts` and compile into CSS variables in `velynx.t
 - Glow intensity: `--vx-glow-g1` through `--vx-glow-g3`
 - Noise overlay: `--vx-noise-fine`, `--vx-noise-bold`
 
+## Typography tokens
+
+- Font families: `--vx-font-sans`, `--vx-font-serif`, `--vx-font-mono`
+
+## Shadow + ring tokens
+
+- Elevation: `--vx-shadow-s1` through `--vx-shadow-s4`
+- Ring widths: `--vx-ring-r1`, `--vx-ring-r2`, `--vx-ring-r3`
+
+## Semantic aliases
+
+- `--vx-primary`, `--vx-secondary`, `--vx-success`, `--vx-warning`, `--vx-danger`, `--vx-info`, `--vx-muted`
+- `--vx-ring`, `--vx-ring-offset`
+
 ## Custom themes
 
 Create a new theme by overriding semantic variables.

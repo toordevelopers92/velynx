@@ -1,6 +1,32 @@
 # Utility catalog
 
-Velynx utilities use a grammar designed for legibility:
+Velynx ships two utility systems:
+
+- Atomic utilities (recommended): `p-4`, `text-primary`, `bg-surface-2`, `rounded-lg`, `shadow-lg`
+- Legacy utilities (still supported): `u-space-in--s4`, `u-measure-w--c40`
+
+## Atomic utilities
+
+Atomic utilities follow a compact, predictable grammar inspired by functional CSS.
+
+```html
+<div class="p-4 bg-surface-1 text-ink shadow-lg rounded-lg"></div>
+<button class="px-4 py-2 bg-primary text-bg hover:bg-accent-2 transition">Action</button>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4"></div>
+```
+
+### Variants
+
+- Responsive: `sm:`, `md:`, `lg:`, `xl:`, `2xl:`
+- States: `hover:`, `focus:`, `focus-visible:`, `active:`, `disabled:`
+- Group/peer: `group-hover:`, `peer-checked:`
+- ARIA/data: `aria-expanded:`, `data-state-open:`
+- Theme/dir: `dark:`, `contrast:`, `rtl:`
+- Motion: `motion-safe:`, `motion-reduce:`
+
+## Legacy utilities
+
+Legacy utilities use a grammar designed for legibility:
 
 ```
 <family>-<variant>--<value>
@@ -15,7 +41,8 @@ Prefix families with `u-`. Examples:
 
 ## Prefix system
 
-- Utilities: `u-`
+- Atomic utilities have no prefix.
+- Legacy utilities: `u-`
 - Components: `c-`
 - States: `s-`
 - Motion: `m-`

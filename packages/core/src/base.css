@@ -7,7 +7,7 @@
 
   html {
     color-scheme: dark light;
-    font-family: "Space Grotesk", "Segoe UI", sans-serif;
+    font-family: var(--vx-font-sans);
     line-height: 1.5;
     text-rendering: optimizeLegibility;
   }
@@ -48,6 +48,14 @@
     --vx-accent-2: var(--vx-palette-pulse);
     --vx-danger: var(--vx-palette-alert);
     --vx-warn: var(--vx-palette-warn);
+    --vx-primary: var(--vx-accent);
+    --vx-secondary: var(--vx-accent-2);
+    --vx-success: var(--vx-accent-2);
+    --vx-warning: var(--vx-warn);
+    --vx-info: var(--vx-accent);
+    --vx-muted: var(--vx-ink-muted);
+    --vx-ring: var(--vx-accent);
+    --vx-ring-offset: var(--vx-bg);
   }
 
   .t-light {
@@ -63,6 +71,14 @@
     --vx-accent-2: #00c2a8;
     --vx-danger: #d94141;
     --vx-warn: #c29a1c;
+    --vx-primary: var(--vx-accent);
+    --vx-secondary: var(--vx-accent-2);
+    --vx-success: var(--vx-accent-2);
+    --vx-warning: var(--vx-warn);
+    --vx-info: var(--vx-accent);
+    --vx-muted: var(--vx-ink-muted);
+    --vx-ring: var(--vx-accent);
+    --vx-ring-offset: var(--vx-bg);
   }
 
   .t-contrast {
@@ -78,6 +94,14 @@
     --vx-accent-2: #ffea00;
     --vx-danger: #ff3b3b;
     --vx-warn: #ffb700;
+    --vx-primary: var(--vx-accent);
+    --vx-secondary: var(--vx-accent-2);
+    --vx-success: var(--vx-accent-2);
+    --vx-warning: var(--vx-warn);
+    --vx-info: var(--vx-accent);
+    --vx-muted: var(--vx-ink-muted);
+    --vx-ring: var(--vx-accent);
+    --vx-ring-offset: var(--vx-bg);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -111,6 +135,32 @@
     }
     100% {
       box-shadow: var(--vx-glow-g1);
+    }
+  }
+
+  @keyframes vx-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes vx-bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+
+  @keyframes vx-pulse {
+    0%,
+    100% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 1;
     }
   }
 }

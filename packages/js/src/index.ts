@@ -6,8 +6,10 @@ import { Tabs } from './modules/tabs';
 import { ToastStack } from './modules/toast';
 import { Accordion } from './modules/accordion';
 import { Popover } from './modules/popover';
+import { Navbar } from './modules/navbar';
+import { Calendar } from './modules/calendar';
 
-export { Modal, Drawer, Dropdown, Tooltip, Tabs, ToastStack, Accordion, Popover };
+export { Modal, Drawer, Dropdown, Tooltip, Tabs, ToastStack, Accordion, Popover, Navbar, Calendar };
 
 export const autoInit = () => {
   Modal.wire();
@@ -18,6 +20,8 @@ export const autoInit = () => {
   ToastStack.wire();
   Accordion.wire();
   Popover.wire();
+  Navbar.wire();
+  Calendar.wire();
 };
 
 const shouldAutoInit = () =>

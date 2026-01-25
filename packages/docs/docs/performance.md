@@ -15,5 +15,5 @@ If you use a bundler, configure your CSS purge step to keep any `u-`, `c-`, `s-`
 Import only the modules you need:
 
 ```ts
-import { Modal, ToastStack } from '@toordevelopers92/velynx-js';
+import { Modal, ToastStack } from '@toordevelopersinc/velynx-js';
 ```

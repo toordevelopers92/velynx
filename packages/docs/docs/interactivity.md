@@ -14,6 +14,8 @@ To enable auto-init without calling `autoInit()`, add `data-vx-auto` to the `<ht
 - Toast: `data-vx="toast-stack"`, `data-vx-toast`, `data-vx-toast-msg`
 - Tooltip: `data-vx-tooltip="text"`
 - Popover: `data-vx-popover="id"`
+- Navbar: `data-vx="navbar"`, `data-vx-toggle`, `data-vx-menu`
+- Calendar: `data-vx="calendar"`, `data-vx-selected`, `data-vx-week-start`, `data-vx-min`, `data-vx-max`, `data-vx-locale`
 
 ## Events
 
@@ -22,7 +24,7 @@ The modules are intentionally small and do not emit custom events. You can liste
 ## API
 
 ```ts
-import { Modal, autoInit } from '@toordevelopers92/velynx-js';
+import { Modal, Calendar, Navbar, autoInit } from '@toordevelopersinc/velynx-js';
 
 const modal = new Modal(document.getElementById('modal-a')!);
 modal.open();

@@ -11,9 +11,15 @@ export const framework = {
     s: '36rem',
     m: '56rem',
     l: '72rem',
-    xl: '90rem'
+    xl: '90rem',
+    '2xl': '96rem'
   },
   tokens: {
+    font: {
+      sans: '"Space Grotesk", "Segoe UI", sans-serif',
+      serif: '"Cormorant Garamond", "Times New Roman", serif',
+      mono: '"JetBrains Mono", "Fira Code", monospace'
+    },
     space: {
       s0: '0',
       s1: '0.25rem',
@@ -63,9 +69,20 @@ export const framework = {
       g2: '0 0 24px rgba(125, 212, 255, 0.45)',
       g3: '0 0 40px rgba(125, 212, 255, 0.6)'
     },
+    shadow: {
+      s1: '0 12px 30px rgba(8, 12, 22, 0.35)',
+      s2: '0 18px 50px rgba(8, 12, 22, 0.45)',
+      s3: '0 30px 80px rgba(8, 12, 22, 0.55)',
+      s4: '0 40px 120px rgba(8, 12, 22, 0.65)'
+    },
     border: {
       thin: '1px',
       thick: '2px'
+    },
+    ring: {
+      r1: '1px',
+      r2: '2px',
+      r3: '4px'
     },
     duration: {
       d1: '120ms',

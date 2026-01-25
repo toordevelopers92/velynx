@@ -4,19 +4,19 @@ Velynx is a glassmorphism-first front-end framework with utilities, components, 
 
 ## Packages
 
-- `@toordevelopers92/velynx` - CSS framework (tokens, core, extended)
-- `@toordevelopers92/velynx-js` - JS modules (modal, drawer, dropdown, tooltip, tabs, toast, accordion, popover)
+- `@toordevelopersinc/velynx` - CSS framework (tokens, core, extended)
+- `@toordevelopersinc/velynx-js` - JS modules (modal, drawer, dropdown, tooltip, tabs, toast, accordion, popover, navbar, calendar)
 
 ## Class grammar
 
-Utilities use a new grammar: `u-<family>-<variant>--<value>`.
+Atomic utilities use short class names like `p-4`, `text-primary`, and `grid-cols-3`. Legacy utilities are still available with `u-<family>-<variant>--<value>`.
 
 Examples:
 
-- `u-space-in--s4` padding
-- `u-measure-w--c40` width
-- `u-tone-surface--2` glass background
-- `u-at-m--space-in--s4` responsive variant
+- `p-4` padding
+- `text-primary` color
+- `bg-surface-2` glass background
+- `sm:grid-cols-3` responsive variant
 
 Component classes use `c-` and states use `s-`. Motion classes use `m-` and theme classes use `t-`.
 
