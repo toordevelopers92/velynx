@@ -20,16 +20,19 @@ jobs:
         with:
           node-version: "20"
           registry-url: "https://registry.npmjs.org"
+          scope: "@toordevelopersinc"
       - run: npm install -g pnpm@9
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
       - run: pnpm test
       - run: pnpm build
-      - name: Clear npm auth config
-        run: npm config delete //registry.npmjs.org/:_authToken || true
       - name: Publish core
-        run: npm publish --access public --provenance
+        run: npm publish --access public
         working-directory: packages/core
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish JS
-        run: npm publish --access public --provenance
+        run: npm publish --access public
         working-directory: packages/js
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
