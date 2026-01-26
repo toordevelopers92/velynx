@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.5
+
+- Triggered publish workflow on main push and manual dispatch for trusted publishing.
+
 ## 0.2.4
 
 - Switched CI publish to npm trusted publishing (OIDC) without tokens.

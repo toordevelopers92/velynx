@@ -1,6 +1,6 @@
 {
   "name": "@toordevelopersinc/velynx",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Velynx core CSS framework",
   "type": "module",
   "files": ["dist"],
