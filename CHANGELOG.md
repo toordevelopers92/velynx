@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1
+
+- Fixed release workflow to publish only the public packages.
+
 ## 0.2.0
 
 - Introduced new prefix and suffix-based variant system across utilities and components.

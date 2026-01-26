@@ -1,6 +1,6 @@
 {
   "name": "@toordevelopersinc/velynx-js",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Velynx interaction modules",
   "type": "module",
   "files": ["dist"],
@@ -24,4 +24,5 @@
     "vitest": "^2.0.5"
   }
 }
+
 
