@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import postcss from 'postcss';
 import autoprefixer from 'autoprefixer';
+import cssnano from 'cssnano';
 import * as frameworkModule from '../../../framework.config';
 
 const getFramework = () => frameworkModule.framework ?? frameworkModule.default;
@@ -1027,13 +1028,20 @@ export const buildOutput = async () => {
   const extendedCss = `${layerOrder}${baseCss}\n${tokensCss}\n${utilitiesCss}\n${componentsCore}\n${componentsExtended}`;
 
   const processor = postcss([autoprefixer()]);
+  const minifier = postcss([cssnano({ preset: 'default' })]);
   const coreResult = await processor.process(coreCss, { from: undefined });
   const extendedResult = await processor.process(extendedCss, { from: undefined });
   const tokensResult = await processor.process(tokensCss, { from: undefined });
+  const coreMinResult = await minifier.process(coreResult.css, { from: undefined });
+  const extendedMinResult = await minifier.process(extendedResult.css, { from: undefined });
+  const tokensMinResult = await minifier.process(tokensResult.css, { from: undefined });
 
   await fs.writeFile(path.join(outDir, 'velynx.core.css'), coreResult.css);
   await fs.writeFile(path.join(outDir, 'velynx.extended.css'), extendedResult.css);
   await fs.writeFile(path.join(outDir, 'velynx.tokens.css'), tokensResult.css);
+  await fs.writeFile(path.join(outDir, 'velynx.core.min.css'), coreMinResult.css);
+  await fs.writeFile(path.join(outDir, 'velynx.extended.min.css'), extendedMinResult.css);
+  await fs.writeFile(path.join(outDir, 'velynx.tokens.min.css'), tokensMinResult.css);
 };
 
 if (import.meta.url === `file://${process.argv[1]}`) {

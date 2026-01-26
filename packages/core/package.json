@@ -1,17 +1,22 @@
 {
   "name": "@toordevelopersinc/velynx",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Velynx core CSS framework",
   "type": "module",
   "files": ["dist"],
   "main": "dist/velynx.extended.css",
   "style": "dist/velynx.extended.css",
+  "unpkg": "dist/velynx.extended.min.css",
+  "jsdelivr": "dist/velynx.extended.min.css",
   "exports": {
     ".": {
       "default": "./dist/velynx.extended.css"
     },
     "./core": "./dist/velynx.core.css",
-    "./tokens": "./dist/velynx.tokens.css"
+    "./tokens": "./dist/velynx.tokens.css",
+    "./extended.min": "./dist/velynx.extended.min.css",
+    "./core.min": "./dist/velynx.core.min.css",
+    "./tokens.min": "./dist/velynx.tokens.min.css"
   },
   "scripts": {
     "build": "pnpm run build:css",
@@ -21,6 +26,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
+    "cssnano": "^7.0.5",
     "postcss": "^8.4.40",
     "postcss-cli": "^11.0.0",
     "stylelint": "^16.8.2",

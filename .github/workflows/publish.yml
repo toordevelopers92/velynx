@@ -21,7 +21,12 @@ jobs:
           node-version: "20"
           registry-url: "https://registry.npmjs.org"
           scope: "@toordevelopersinc"
-      - run: npm install -g pnpm@9
+          cache: "pnpm"
+          cache-dependency-path: pnpm-lock.yaml
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
       - run: pnpm test

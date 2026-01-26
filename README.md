@@ -7,6 +7,99 @@ Velynx is a glassmorphism-first front-end framework with utilities, components, 
 - `@toordevelopersinc/velynx` - CSS framework (tokens, core, extended)
 - `@toordevelopersinc/velynx-js` - JS modules (modal, drawer, dropdown, tooltip, tabs, toast, accordion, popover, navbar, calendar)
 
+## Install (npm, pnpm, yarn, bun)
+
+```bash
+pnpm add @toordevelopersinc/velynx @toordevelopersinc/velynx-js
+npm install @toordevelopersinc/velynx @toordevelopersinc/velynx-js
+yarn add @toordevelopersinc/velynx @toordevelopersinc/velynx-js
+bun add @toordevelopersinc/velynx @toordevelopersinc/velynx-js
+```
+
+## Use with bundlers
+
+### CSS
+
+```css
+@import '@toordevelopersinc/velynx';
+```
+
+```css
+@import '@toordevelopersinc/velynx/core';
+@import '@toordevelopersinc/velynx/tokens';
+```
+
+### JS
+
+```ts
+import { autoInit, Modal } from '@toordevelopersinc/velynx-js';
+
+autoInit();
+```
+
+Auto-init also runs when `<html data-vx-auto>` is present.
+
+## CDN and direct links
+
+### jsDelivr (npm CDN)
+
+```html
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@toordevelopersinc/velynx@0.2.6/dist/velynx.extended.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/@toordevelopersinc/velynx-js@0.2.6/dist/velynx.umd.js"></script>
+<script>
+  Velynx.autoInit();
+</script>
+```
+
+```html
+<script type="module">
+  import { autoInit } from 'https://cdn.jsdelivr.net/npm/@toordevelopersinc/velynx-js@0.2.6/dist/velynx.esm.js';
+  autoInit();
+</script>
+```
+
+Swap `@0.2.6` with `@latest` or a pinned version tag for stability.
+
+Other CSS bundles:
+
+- `https://cdn.jsdelivr.net/npm/@toordevelopersinc/velynx@0.2.6/dist/velynx.core.min.css`
+- `https://cdn.jsdelivr.net/npm/@toordevelopersinc/velynx@0.2.6/dist/velynx.tokens.min.css`
+
+### UNPKG (npm CDN)
+
+- `https://unpkg.com/@toordevelopersinc/velynx@0.2.6/dist/velynx.extended.min.css`
+- `https://unpkg.com/@toordevelopersinc/velynx-js@0.2.6/dist/velynx.umd.js`
+- `https://unpkg.com/@toordevelopersinc/velynx-js@0.2.6/dist/velynx.esm.js`
+
+### GitHub CDN (jsDelivr/gh)
+
+- `https://cdn.jsdelivr.net/gh/toordevelopers92/velynx@v0.2.6/packages/core/dist/velynx.extended.min.css`
+- `https://cdn.jsdelivr.net/gh/toordevelopers92/velynx@v0.2.6/packages/core/dist/velynx.core.min.css`
+- `https://cdn.jsdelivr.net/gh/toordevelopers92/velynx@v0.2.6/packages/core/dist/velynx.tokens.min.css`
+- `https://cdn.jsdelivr.net/gh/toordevelopers92/velynx@v0.2.6/packages/js/dist/velynx.umd.js`
+- `https://cdn.jsdelivr.net/gh/toordevelopers92/velynx@v0.2.6/packages/js/dist/velynx.esm.js`
+
+Pin to a tag like `v0.2.6` for stability.
+
+### GitHub (source + self-host)
+
+```bash
+git clone https://github.com/toordevelopers92/velynx.git
+cd velynx
+pnpm install
+pnpm build
+```
+
+Then serve the built files from `packages/core/dist` and `packages/js/dist`:
+
+```html
+<link rel="stylesheet" href="/assets/velynx.extended.min.css" />
+<script src="/assets/velynx.umd.js"></script>
+```
+
 ## Class grammar
 
 Utilities use the `vxu-` prefix and come in two flavors: macro layouts (flow, grid, glass) and micro utilities that mirror CSS properties.
@@ -22,7 +115,7 @@ Components use `vxc-`, states and variants use `vxs-`, motion helpers use `vxm-`
 
 Variants are suffix-based: `__hover`, `__focus-visible`, `__at-m`, `__theme-contrast`, `__motion-reduce`, `__print`.
 
-## Quick start
+## Local development
 
 ```bash
 pnpm install
@@ -64,6 +157,3 @@ Release steps:
 ## License
 
 MIT
-
-
-

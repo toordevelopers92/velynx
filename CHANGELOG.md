@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.6
+
+- Added minified CSS outputs and CDN-friendly defaults.
+- Committed package dist assets for GitHub CDN delivery.
+- Expanded README with CDN and install instructions.
+- Speeded up publish workflow with pnpm caching.
+
 ## 0.2.5
 
 - Triggered publish workflow on main push and manual dispatch for trusted publishing.

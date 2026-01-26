@@ -1,6 +1,5 @@
 node_modules
 .DS_Store
-packages/**/dist
 packages/**/.vite
 packages/**/.vitepress/cache
 packages/**/.vitepress/dist
