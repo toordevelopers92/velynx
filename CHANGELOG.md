@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.2
+
+- Added npm auth token to publish workflow for CI releases.
+
 ## 0.2.1
 
 - Fixed release workflow to publish only the public packages.
