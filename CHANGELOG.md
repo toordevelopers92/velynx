@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.4
+
+- Switched CI publish to npm trusted publishing (OIDC) without tokens.
+
 ## 0.2.3
 
 - Added explicit npm auth configuration for CI publish.
