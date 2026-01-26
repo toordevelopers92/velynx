@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.3
+
+- Added explicit npm auth configuration for CI publish.
+
 ## 0.2.2
 
 - Added npm auth token to publish workflow for CI releases.
