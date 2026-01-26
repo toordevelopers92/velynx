@@ -31,12 +31,24 @@ jobs:
       - run: pnpm test
       - run: pnpm build
       - name: Publish core
-        run: npm publish --access public
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          if npm view "@toordevelopersinc/velynx@$VERSION" version > /dev/null 2>&1; then
+            echo "Version $VERSION already published. Skipping."
+          else
+            npm publish --access public
+          fi
         working-directory: packages/core
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish JS
-        run: npm publish --access public
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          if npm view "@toordevelopersinc/velynx-js@$VERSION" version > /dev/null 2>&1; then
+            echo "Version $VERSION already published. Skipping."
+          else
+            npm publish --access public
+          fi
         working-directory: packages/js
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

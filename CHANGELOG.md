@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.7
+
+- Fix publish workflow pnpm setup mismatch.
+- Bump version to avoid npm republish errors.
+
 ## 0.2.6
 
 - Added minified CSS outputs and CDN-friendly defaults.

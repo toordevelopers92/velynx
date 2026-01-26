@@ -46,9 +46,9 @@ Auto-init also runs when `<html data-vx-auto>` is present.
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@toordevelopersinc/velynx@0.2.6/dist/velynx.extended.min.css"
+  href="https://cdn.jsdelivr.net/npm/@toordevelopersinc/velynx@0.2.7/dist/velynx.extended.min.css"
 />
-<script src="https://cdn.jsdelivr.net/npm/@toordevelopersinc/velynx-js@0.2.6/dist/velynx.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@toordevelopersinc/velynx-js@0.2.7/dist/velynx.umd.js"></script>
 <script>
   Velynx.autoInit();
 </script>
@@ -56,33 +56,33 @@ Auto-init also runs when `<html data-vx-auto>` is present.
 
 ```html
 <script type="module">
-  import { autoInit } from 'https://cdn.jsdelivr.net/npm/@toordevelopersinc/velynx-js@0.2.6/dist/velynx.esm.js';
+  import { autoInit } from 'https://cdn.jsdelivr.net/npm/@toordevelopersinc/velynx-js@0.2.7/dist/velynx.esm.js';
   autoInit();
 </script>
 ```
 
-Swap `@0.2.6` with `@latest` or a pinned version tag for stability.
+Swap `@0.2.7` with `@latest` or a pinned version tag for stability.
 
 Other CSS bundles:
 
-- `https://cdn.jsdelivr.net/npm/@toordevelopersinc/velynx@0.2.6/dist/velynx.core.min.css`
-- `https://cdn.jsdelivr.net/npm/@toordevelopersinc/velynx@0.2.6/dist/velynx.tokens.min.css`
+- `https://cdn.jsdelivr.net/npm/@toordevelopersinc/velynx@0.2.7/dist/velynx.core.min.css`
+- `https://cdn.jsdelivr.net/npm/@toordevelopersinc/velynx@0.2.7/dist/velynx.tokens.min.css`
 
 ### UNPKG (npm CDN)
 
-- `https://unpkg.com/@toordevelopersinc/velynx@0.2.6/dist/velynx.extended.min.css`
-- `https://unpkg.com/@toordevelopersinc/velynx-js@0.2.6/dist/velynx.umd.js`
-- `https://unpkg.com/@toordevelopersinc/velynx-js@0.2.6/dist/velynx.esm.js`
+- `https://unpkg.com/@toordevelopersinc/velynx@0.2.7/dist/velynx.extended.min.css`
+- `https://unpkg.com/@toordevelopersinc/velynx-js@0.2.7/dist/velynx.umd.js`
+- `https://unpkg.com/@toordevelopersinc/velynx-js@0.2.7/dist/velynx.esm.js`
 
 ### GitHub CDN (jsDelivr/gh)
 
-- `https://cdn.jsdelivr.net/gh/toordevelopers92/velynx@v0.2.6/packages/core/dist/velynx.extended.min.css`
-- `https://cdn.jsdelivr.net/gh/toordevelopers92/velynx@v0.2.6/packages/core/dist/velynx.core.min.css`
-- `https://cdn.jsdelivr.net/gh/toordevelopers92/velynx@v0.2.6/packages/core/dist/velynx.tokens.min.css`
-- `https://cdn.jsdelivr.net/gh/toordevelopers92/velynx@v0.2.6/packages/js/dist/velynx.umd.js`
-- `https://cdn.jsdelivr.net/gh/toordevelopers92/velynx@v0.2.6/packages/js/dist/velynx.esm.js`
+- `https://cdn.jsdelivr.net/gh/toordevelopers92/velynx@v0.2.7/packages/core/dist/velynx.extended.min.css`
+- `https://cdn.jsdelivr.net/gh/toordevelopers92/velynx@v0.2.7/packages/core/dist/velynx.core.min.css`
+- `https://cdn.jsdelivr.net/gh/toordevelopers92/velynx@v0.2.7/packages/core/dist/velynx.tokens.min.css`
+- `https://cdn.jsdelivr.net/gh/toordevelopers92/velynx@v0.2.7/packages/js/dist/velynx.umd.js`
+- `https://cdn.jsdelivr.net/gh/toordevelopers92/velynx@v0.2.7/packages/js/dist/velynx.esm.js`
 
-Pin to a tag like `v0.2.6` for stability.
+Pin to a tag like `v0.2.7` for stability.
 
 ### GitHub (source + self-host)
 
