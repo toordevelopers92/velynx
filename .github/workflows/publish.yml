@@ -25,6 +25,8 @@ jobs:
       - run: pnpm lint
       - run: pnpm test
       - run: pnpm build
+      - name: Clear npm auth config
+        run: npm config delete //registry.npmjs.org/:_authToken || true
       - name: Publish core
         run: npm publish --access public --provenance
         working-directory: packages/core
