@@ -1,9 +1,11 @@
 {
   "name": "@toordevelopersinc/velynx-js",
-  "version": "0.2.7",
+  "version": "0.3.0",
   "description": "Velynx interaction modules",
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "dist/velynx.umd.js",
   "module": "dist/velynx.esm.js",
   "unpkg": "dist/velynx.umd.js",
@@ -26,8 +28,3 @@
     "vitest": "^2.0.5"
   }
 }
-
-
-
-
-

@@ -1,9 +1,11 @@
 {
   "name": "@toordevelopersinc/velynx",
-  "version": "0.2.7",
+  "version": "0.3.0",
   "description": "Velynx core CSS framework",
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "dist/velynx.extended.css",
   "style": "dist/velynx.extended.css",
   "unpkg": "dist/velynx.extended.min.css",
@@ -34,8 +36,3 @@
     "vitest": "^2.0.5"
   }
 }
-
-
-
-
-

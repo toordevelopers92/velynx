@@ -13,7 +13,6 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    environment: github-pages
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -26,6 +25,19 @@ jobs:
           scope: "@toordevelopersinc"
           cache: "pnpm"
           cache-dependency-path: pnpm-lock.yaml
+      - name: Verify npm token
+        run: |
+          if [ -z "${NODE_AUTH_TOKEN}" ]; then
+            echo "NPM_TOKEN is missing. Add it in repository secrets."
+            exit 1
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Show release versions
+        run: |
+          echo "Root: $(node -p 'require(\"./package.json\").version')"
+          echo "Core: $(node -p 'require(\"./packages/core/package.json\").version')"
+          echo "JS: $(node -p 'require(\"./packages/js/package.json\").version')"
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
       - run: pnpm test
@@ -36,7 +48,7 @@ jobs:
           if npm view "@toordevelopersinc/velynx@$VERSION" version > /dev/null 2>&1; then
             echo "Version $VERSION already published. Skipping."
           else
-            npm publish --access public
+            npm publish --access public --provenance
           fi
         working-directory: packages/core
         env:
@@ -47,7 +59,7 @@ jobs:
           if npm view "@toordevelopersinc/velynx-js@$VERSION" version > /dev/null 2>&1; then
             echo "Version $VERSION already published. Skipping."
           else
-            npm publish --access public
+            npm publish --access public --provenance
           fi
         working-directory: packages/js
         env:

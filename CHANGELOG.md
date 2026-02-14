@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.0
+
+- Added calendar single, multi, and range selection modes with optimized rendering.
+- Added particle progress and image reveal modules plus corresponding component styles.
+- Added directional modal animation support and cookie banner component styles.
+- Added docs automation pipeline that imports all `/examples` pages into live demo docs.
+- Added showcase page and live demo viewer with iframe preview plus code tabs.
+- Updated GitHub Pages deployment to support custom-domain root base path.
+- Hardened npm publish workflow with token validation and provenance publish.
+
 ## 0.2.7
 
 - Fix publish workflow pnpm setup mismatch.
