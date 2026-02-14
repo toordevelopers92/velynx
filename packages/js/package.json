@@ -2,6 +2,11 @@
   "name": "@toordevelopersinc/velynx-js",
   "version": "0.3.0",
   "description": "Velynx interaction modules",
+  "repository": "https://github.com/toordevelopers92/velynx",
+  "homepage": "https://github.com/toordevelopers92/velynx#readme",
+  "bugs": {
+    "url": "https://github.com/toordevelopers92/velynx/issues"
+  },
   "type": "module",
   "files": [
     "dist"
