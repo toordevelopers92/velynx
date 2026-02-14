@@ -23,7 +23,9 @@
   },
   "scripts": {
     "build": "pnpm -C packages/core build && pnpm -C packages/js build",
-    "docs:build": "pnpm -C packages/docs docs:build",
+    "docs:prepare": "node scripts/prepare-docs.js",
+    "docs:build": "pnpm docs:prepare && pnpm -C packages/docs docs:build",
+    "docs:dev": "pnpm docs:prepare && pnpm -C packages/docs docs:dev",
     "test": "pnpm -C packages/core test && pnpm -C packages/js test",
     "lint": "pnpm -C packages/core lint && pnpm -C packages/js lint && pnpm -C packages/docs lint",
     "format": "prettier -w ."

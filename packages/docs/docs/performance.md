@@ -18,5 +18,12 @@ Import only the modules you need:
 import { Modal, ToastStack } from '@toordevelopersinc/velynx-js';
 ```
 
+## Recent runtime optimizations
+
+- Calendar rendering now uses `DocumentFragment` batching to reduce layout thrash.
+- Weekday and month formatters are cached per calendar instance.
+- Weekday headers render once instead of re-rendering every month navigation.
+- Legacy class-name mismatches in JS modules were aligned with current `vxc-`/`vxm-` CSS naming for less style fallback overhead.
+
 
 

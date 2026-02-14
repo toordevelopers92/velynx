@@ -8,6 +8,8 @@ Tokens live in `framework.config.ts` and compile into CSS variables in `velynx.t
 - `vxt-light` switches to the light palette.
 - `vxt-contrast` increases contrast and border visibility.
 
+Try theme switching live in `showcase`.
+
 ## Glass tokens
 
 - Surface opacity levels: `--vx-glass-surface1`, `--vx-glass-surface2`, `--vx-glass-surface3`

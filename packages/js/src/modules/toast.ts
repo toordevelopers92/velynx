@@ -7,7 +7,7 @@ export class ToastStack {
 
   show(message: string, timeout = 3200) {
     const toast = document.createElement('div');
-    toast.className = 'c-toast m-fade-1';
+    toast.className = 'vxc-toast vxm-fade-1';
     toast.textContent = message;
     this.root.appendChild(toast);
     window.setTimeout(() => {

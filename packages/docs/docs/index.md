@@ -16,9 +16,18 @@ Velynx is a glassmorphism-first front-end framework with a utility layer, a comp
 - Tokens-only build for custom pipelines
 - Vanilla TypeScript modules for common UI behaviors
 
-## Kitchen sink
+## Documentation guarantees
 
-See `kitchen-sink` for a single-page gallery of utilities and components.
+This docs site is built and rendered using the latest compiled Velynx CSS and JS from this repository.
+Every demo page runs live and uses framework assets copied from current build output.
+
+## Start here
+
+- `install` for package/CDN setup
+- `quickstart` for a production starter template
+- `showcase` for full framework implementation in one page
+- `demos/` for imported examples with live preview and source code
+- `kitchen-sink` for a broad component gallery
 
 
 

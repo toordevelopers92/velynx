@@ -1,0 +1,25 @@
+.vx-docs-runtime {
+  margin-block: 1rem;
+}
+
+.vx-demo-viewer {
+  margin-block: 1rem 2rem;
+}
+
+.vx-demo-frame {
+  width: 100%;
+  min-height: 32rem;
+  border: var(--vx-border-thin) solid var(--vx-line-1);
+  border-radius: var(--vx-radius-r3);
+  background: var(--vx-surface-2);
+}
+
+.vp-doc .vxc-card,
+.vp-doc .vxc-alert,
+.vp-doc .vxc-banner {
+  margin-block: 0.6rem;
+}
+
+.vp-doc .vxc-feature-grid {
+  margin-block: 1rem;
+}

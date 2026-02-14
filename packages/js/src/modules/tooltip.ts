@@ -8,7 +8,7 @@ export class Tooltip {
       const show = () => {
         if (!text) return;
         tipEl = document.createElement('div');
-        tipEl.className = 'c-tooltip m-fade-1';
+        tipEl.className = 'vxc-tooltip vxm-fade-1';
         tipEl.textContent = text;
         document.body.appendChild(tipEl);
         const rect = trigger.getBoundingClientRect();

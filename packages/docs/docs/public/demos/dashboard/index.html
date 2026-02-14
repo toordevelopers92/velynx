@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en" class="vxt-dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Velynx Dashboard</title>
+    <link rel="stylesheet" href="../../velynx/velynx.extended.css" />
+    <style>
+      body {
+        display: grid;
+        grid-template-columns: 240px 1fr;
+        min-height: 100vh;
+        background: #0b0f1a;
+      }
+      main {
+        padding: 2rem;
+      }
+      .cards {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+      .chart {
+        height: 160px;
+      }
+      @media (max-width: 900px) {
+        body {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <aside class="vxc-sidebar">
+      <div class="vxc-badge">Control</div>
+      <button class="vxc-button" data-vx-open="dash-drawer">Quick menu</button>
+      <div class="vxc-list">
+        <div class="vxc-list-item">Telemetry</div>
+        <div class="vxc-list-item">Crew</div>
+        <div class="vxc-list-item">Logs</div>
+      </div>
+    </aside>
+
+    <main class="vxu-flow-stack--s4">
+      <div class="vxc-navbar">
+        <h2 class="vxu-type-scale--t4">Mission dashboard</h2>
+        <div class="vxu-flow-row--s2">
+          <button class="vxc-button" data-vx-tooltip="Alerts">Alerts</button>
+          <button class="vxc-button vxs-variant-solid" data-vx-open="dash-modal">New task</button>
+        </div>
+      </div>
+
+      <section class="cards">
+        <article class="vxc-card vxu-flow-stack--s2">
+          <div class="vxc-badge">Uptime</div>
+          <h3 class="vxu-type-scale--t5">99.98%</h3>
+          <div class="vxc-progress"><div class="vxc-progress-bar" style="width: 98%"></div></div>
+        </article>
+        <article class="vxc-card vxu-flow-stack--s2">
+          <div class="vxc-badge">Nodes</div>
+          <h3 class="vxu-type-scale--t5">28</h3>
+          <div class="vxc-skeleton chart"></div>
+        </article>
+        <article class="vxc-card vxu-flow-stack--s2">
+          <div class="vxc-badge">Queue</div>
+          <h3 class="vxu-type-scale--t5">14</h3>
+          <div class="vxc-skeleton chart"></div>
+        </article>
+      </section>
+
+      <section class="vxc-card">
+        <table class="vxc-table">
+          <thead>
+            <tr><th>Node</th><th>Status</th><th>Latency</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>NX-04</td><td>Online</td><td>36ms</td></tr>
+            <tr><td>NX-08</td><td>Calibrating</td><td>84ms</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <div class="vxc-modal" id="dash-modal" data-vx="modal">
+      <div class="vxc-modal-panel vxu-flow-stack--s3">
+        <h3 class="vxu-type-scale--t4">New task</h3>
+        <input class="vxc-input" placeholder="Task name" />
+        <button class="vxc-button vxs-variant-solid" data-vx-close="dash-modal">Create</button>
+      </div>
+    </div>
+
+    <div class="vxc-drawer" id="dash-drawer" data-vx="drawer">
+      <div class="vxc-drawer-panel vxu-flow-stack--s3">
+        <h3 class="vxu-type-scale--t4">Quick menu</h3>
+        <button class="vxc-button" data-vx-close="dash-drawer">Close</button>
+      </div>
+    </div>
+
+    <script type="module">
+      import { autoInit } from '../../velynx/velynx.esm.js';
+      autoInit();
+    </script>
+  </body>
+</html>
+
+
+

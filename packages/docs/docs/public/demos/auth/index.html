@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" class="vxt-dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Velynx Auth</title>
+    <link rel="stylesheet" href="../../velynx/velynx.extended.css" />
+    <style>
+      body {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: radial-gradient(circle at top, #1a2044, #0b0f1a 60%);
+      }
+      .auth-card {
+        width: min(90vw, 26rem);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="vxc-card auth-card vxu-flow-stack--s3">
+      <div class="vxu-flow-row--s2" style="justify-content: space-between;">
+        <h1 class="vxu-type-scale--t5">Access node</h1>
+        <label class="vxc-switch">
+          <input id="themeToggle" type="checkbox" />
+          <span>Light</span>
+        </label>
+      </div>
+
+      <div class="vxc-field">
+        <label for="email">Email</label>
+        <input id="email" class="vxc-input" type="email" placeholder="crew@velynx.io" />
+      </div>
+
+      <div class="vxc-field">
+        <label for="password">Password</label>
+        <div class="vxc-input-group">
+          <input id="password" class="vxc-input" type="password" placeholder="������" />
+          <button class="vxc-button" id="togglePass">Show</button>
+        </div>
+        <small class="vxu-tone-ink--mute">Minimum 8 characters.</small>
+      </div>
+
+      <div class="vxu-flow-row--s2">
+        <label class="vxc-check"><input type="checkbox" /> Remember</label>
+        <label class="vxc-radio"><input type="radio" name="mode" checked /> Login</label>
+        <label class="vxc-radio"><input type="radio" name="mode" /> Register</label>
+      </div>
+
+      <button class="vxc-button vxs-variant-solid">Authenticate</button>
+    </main>
+
+    <script>
+      const toggle = document.getElementById('themeToggle');
+      const root = document.documentElement;
+      toggle.addEventListener('change', () => {
+        root.classList.toggle('vxt-light', toggle.checked);
+        root.classList.toggle('vxt-dark', !toggle.checked);
+      });
+
+      const pass = document.getElementById('password');
+      const btn = document.getElementById('togglePass');
+      btn.addEventListener('click', () => {
+        const isHidden = pass.getAttribute('type') === 'password';
+        pass.setAttribute('type', isHidden ? 'text' : 'password');
+        btn.textContent = isHidden ? 'Hide' : 'Show';
+      });
+    </script>
+  </body>
+</html>
+
+
+

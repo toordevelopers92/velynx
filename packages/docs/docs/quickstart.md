@@ -1,6 +1,6 @@
 # Quickstart
 
-## Copy-paste starter
+## Copy-paste starter (real layout + interactivity)
 
 ```html
 <!doctype html>
@@ -49,9 +49,9 @@
 
 ## Next steps
 
-- Read the utility catalog to learn the grammar.
-- Browse components and their data attributes.
-- Decide whether you want the core or extended build.
+- Use `showcase` to see all major framework capabilities in one page.
+- Open `demos/` to run imported examples with live code tabs.
+- Read `tokens` for full theming strategy.
 
 
 

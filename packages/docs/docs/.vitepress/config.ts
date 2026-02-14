@@ -1,9 +1,14 @@
 import { defineConfig } from 'vitepress';
 
+const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1] || 'TDF-OpenAI';
+const isGitHubActions = process.env.GITHUB_ACTIONS === 'true';
+const base = process.env.DOCS_BASE || (isGitHubActions ? `/${repoName}/` : '/');
+
 export default defineConfig({
   lang: 'en-US',
   title: 'Velynx UI',
   description: 'A hybrid utility + component framework with a glass-first aesthetic.',
+  base,
   themeConfig: {
     nav: [
       { text: 'Overview', link: '/' },
@@ -11,35 +16,54 @@ export default defineConfig({
       { text: 'Utilities', link: '/utilities' },
       { text: 'Components', link: '/components' },
       { text: 'Interactivity', link: '/interactivity' },
+      { text: 'Demos', link: '/demos/' },
+      { text: 'Showcase', link: '/showcase' },
       { text: 'Audit', link: '/framework-audit' }
     ],
     sidebar: [
-      { text: 'Getting Started', items: [
-        { text: 'Overview', link: '/' },
-        { text: 'Install', link: '/install' },
-        { text: 'Quickstart', link: '/quickstart' },
-        { text: 'Kitchen Sink', link: '/kitchen-sink' }
-      ] },
-      { text: 'Design System', items: [
-        { text: 'Tokens & Theming', link: '/tokens' },
-        { text: 'Utilities', link: '/utilities' },
-        { text: 'Components', link: '/components' },
-        { text: 'Motion', link: '/motion' }
-      ] },
-      { text: 'Guides', items: [
-        { text: 'Interactivity', link: '/interactivity' },
-        { text: 'Responsive & RTL', link: '/responsive-rtl' },
-        { text: 'Accessibility', link: '/accessibility' },
-        { text: 'Browser Support', link: '/support' },
-        { text: 'Performance', link: '/performance' },
-        { text: 'Plugins', link: '/plugins' }
-      ] },
-      { text: 'Project', items: [
-        { text: 'Contributing', link: '/contributing' },
-        { text: 'Framework Audit', link: '/framework-audit' },
-        { text: 'Changelog', link: '/changelog' },
-        { text: 'Roadmap', link: '/roadmap' }
-      ] }
+      {
+        text: 'Getting Started',
+        items: [
+          { text: 'Overview', link: '/' },
+          { text: 'Install', link: '/install' },
+          { text: 'Quickstart', link: '/quickstart' },
+          { text: 'Kitchen Sink', link: '/kitchen-sink' },
+          { text: 'Showcase', link: '/showcase' }
+        ]
+      },
+      {
+        text: 'Design System',
+        items: [
+          { text: 'Tokens & Theming', link: '/tokens' },
+          { text: 'Utilities', link: '/utilities' },
+          { text: 'Components', link: '/components' },
+          { text: 'Motion', link: '/motion' }
+        ]
+      },
+      {
+        text: 'Guides',
+        items: [
+          { text: 'Interactivity', link: '/interactivity' },
+          { text: 'Responsive & RTL', link: '/responsive-rtl' },
+          { text: 'Accessibility', link: '/accessibility' },
+          { text: 'Browser Support', link: '/support' },
+          { text: 'Performance', link: '/performance' },
+          { text: 'Plugins', link: '/plugins' }
+        ]
+      },
+      {
+        text: 'Demos',
+        items: [{ text: 'All Demos', link: '/demos/' }]
+      },
+      {
+        text: 'Project',
+        items: [
+          { text: 'Contributing', link: '/contributing' },
+          { text: 'Framework Audit', link: '/framework-audit' },
+          { text: 'Changelog', link: '/changelog' },
+          { text: 'Roadmap', link: '/roadmap' }
+        ]
+      }
     ]
   }
 });

@@ -8,8 +8,23 @@ import { Accordion } from './modules/accordion';
 import { Popover } from './modules/popover';
 import { Navbar } from './modules/navbar';
 import { Calendar } from './modules/calendar';
+import { ParticleProgress } from './modules/particle-progress';
+import { ImageReveal } from './modules/image-reveal';
 
-export { Modal, Drawer, Dropdown, Tooltip, Tabs, ToastStack, Accordion, Popover, Navbar, Calendar };
+export {
+  Modal,
+  Drawer,
+  Dropdown,
+  Tooltip,
+  Tabs,
+  ToastStack,
+  Accordion,
+  Popover,
+  Navbar,
+  Calendar,
+  ParticleProgress,
+  ImageReveal
+};
 
 export const autoInit = () => {
   Modal.wire();
@@ -22,6 +37,8 @@ export const autoInit = () => {
   Popover.wire();
   Navbar.wire();
   Calendar.wire();
+  ParticleProgress.wire();
+  ImageReveal.wire();
 };
 
 const shouldAutoInit = () =>

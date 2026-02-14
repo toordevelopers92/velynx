@@ -244,7 +244,38 @@ Components use the `vxc-` prefix. Variants are expressed with suffixes like `vxs
 ## Calendar (JS)
 
 ```html
-<div class="vxc-calendar" data-vx="calendar" data-vx-selected="2026-01-25"></div>
+<div class="vxc-calendar" data-vx="calendar" data-vx-selection="single" data-vx-selected="2026-01-25"></div>
+<div class="vxc-calendar" data-vx="calendar" data-vx-selection="multi" data-vx-selected-dates="2026-01-20,2026-01-25"></div>
+<div class="vxc-calendar" data-vx="calendar" data-vx-selection="range" data-vx-range-start="2026-01-20" data-vx-range-end="2026-01-26"></div>
+```
+
+## Particle loading bar
+
+```html
+<div class="vxc-progress vxc-progress-particles" data-vx="particle-progress" data-vx-progress="62" data-vx-particle-count="18">
+  <div class="vxc-progress-bar"></div>
+  <div class="vxc-progress-particle-layer"></div>
+</div>
+```
+
+## Cookie banner snippet
+
+```html
+<aside class="vxc-cookie-banner vxs-open">
+  <div>We use cookies to improve your experience.</div>
+  <div class="vxc-cookie-banner-actions">
+    <button class="vxc-button vxs-variant-solid">Accept</button>
+    <button class="vxc-button">Decline</button>
+  </div>
+</aside>
+```
+
+## Image reveal
+
+```html
+<figure class="vxc-image-reveal" data-vx="image-reveal">
+  <img src="..." alt="Preview" />
+</figure>
 ```
 
 ## Menu
@@ -357,7 +388,7 @@ Components use the `vxc-` prefix. Variants are expressed with suffixes like `vxs
 
 ```html
 <button class="vxc-button" data-vx-open="modal-x">Open</button>
-<div class="vxc-modal" id="modal-x" data-vx="modal">
+<div class="vxc-modal" id="modal-x" data-vx="modal" data-vx-angle="top-right">
   <div class="vxc-modal-panel">
     <button class="vxc-button" data-vx-close="modal-x">Close</button>
   </div>

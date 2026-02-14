@@ -5,7 +5,64 @@ Velynx is a glassmorphism-first front-end framework with utilities, components, 
 ## Packages
 
 - `@toordevelopersinc/velynx` - CSS framework (tokens, core, extended)
-- `@toordevelopersinc/velynx-js` - JS modules (modal, drawer, dropdown, tooltip, tabs, toast, accordion, popover, navbar, calendar)
+- `@toordevelopersinc/velynx-js` - JS modules (modal, drawer, dropdown, tooltip, tabs, toast, accordion, popover, navbar, calendar, particle progress, image reveal)
+
+## Major updates in this project upgrade
+
+1. Single date selector in Calendar via `data-vx-selection="single"` (default behavior).
+2. Multi date selector in Calendar via `data-vx-selection="multi"` and `data-vx-selected-dates`.
+3. Date range selector in Calendar via `data-vx-selection="range"` and `data-vx-range-start` / `data-vx-range-end`.
+4. Particle scatter/collapse loading bar design via `data-vx="particle-progress"` and `.vxc-progress-particles`.
+5. New live feature demo page at `examples/live-demo/index.html`.
+6. Modal animation upgrades with directional angles via `data-vx-angle` (including `random`).
+7. Speed improvements in calendar rendering (fragment batching, formatter caching, reduced repeated rendering).
+8. Cookie banner snippet styling via `.vxc-cookie-banner` and `.vxc-cookie-banner-actions`.
+9. Docs/README updates to capture all enhancements.
+10. Image display animation via `data-vx="image-reveal"` and `.vxc-image-reveal`.
+
+## New feature snippets
+
+### Calendar modes
+
+```html
+<div class="vxc-calendar" data-vx="calendar" data-vx-selection="single" data-vx-selected="2026-02-14"></div>
+<div class="vxc-calendar" data-vx="calendar" data-vx-selection="multi" data-vx-selected-dates="2026-02-10,2026-02-14"></div>
+<div class="vxc-calendar" data-vx="calendar" data-vx-selection="range" data-vx-range-start="2026-02-10" data-vx-range-end="2026-02-16"></div>
+```
+
+### Particle progress
+
+```html
+<div data-vx="particle-progress" data-vx-progress="62" data-vx-particle-count="18"></div>
+```
+
+### Modal angles
+
+```html
+<div class="vxc-modal" id="modal-a" data-vx="modal" data-vx-angle="top-right">
+  <div class="vxc-modal-panel">...</div>
+</div>
+```
+
+### Cookie banner snippet
+
+```html
+<aside class="vxc-cookie-banner vxs-open">
+  <div>We use cookies to improve your experience.</div>
+  <div class="vxc-cookie-banner-actions">
+    <button class="vxc-button vxs-variant-solid">Accept</button>
+    <button class="vxc-button">Decline</button>
+  </div>
+</aside>
+```
+
+### Image reveal animation
+
+```html
+<figure data-vx="image-reveal">
+  <img src="..." alt="Preview" />
+</figure>
+```
 
 ## Install (npm, pnpm, yarn, bun)
 
@@ -135,13 +192,49 @@ pnpm -C packages/js build
 ## Docs
 
 ```bash
+pnpm docs:prepare
 pnpm docs:build
-pnpm -C packages/docs docs:dev
+pnpm docs:dev
 ```
+
+### How docs are built
+
+`pnpm docs:prepare` runs an automated pipeline:
+
+1. Build latest framework outputs from `packages/core/dist` and `packages/js/dist`
+2. Copy compiled CSS/JS into `packages/docs/docs/public/velynx`
+3. Import every HTML page from `examples/` into docs demo assets
+4. Generate docs demo pages and demos manifest automatically
+
+Scripts:
+
+- `scripts/prepare-docs.js`
+- `scripts/sync-docs-assets.js`
+- `scripts/import-examples.js`
+
+### Example import pipeline
+
+For each `examples/**/*.html`, the import script:
+
+- Creates runnable demo at `packages/docs/docs/public/demos/<slug>/index.html`
+- Rewrites framework asset paths for GitHub Pages-safe runtime paths
+- Extracts HTML/CSS/JS source into `source.json`
+- Generates docs page at `packages/docs/docs/demos/<slug>.md`
+- Rebuilds demos landing page at `packages/docs/docs/demos/index.md`
+
+## GitHub Pages deploy
+
+GitHub Actions deployment is configured in:
+
+- `.github/workflows/docs.yml`
+
+On push to `main`, the workflow installs dependencies, builds docs, uploads the VitePress artifact, and deploys to GitHub Pages.
 
 ## Examples
 
 Open the HTML files in `examples/` after building CSS and JS.
+
+- `examples/live-demo/index.html` includes the full upgraded feature set in one page.
 
 ## Versioning and releases
 

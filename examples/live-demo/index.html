@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en" class="vxt-dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Velynx Live Feature Demo</title>
+    <link rel="stylesheet" href="../../packages/core/dist/velynx.extended.css" />
+    <style>
+      body {
+        min-height: 100vh;
+        background: radial-gradient(circle at 20% 0%, #182867 0%, #0b0f1a 46%, #070a13 100%);
+      }
+
+      .demo-shell {
+        padding: 2rem 0 8rem;
+      }
+
+      .demo-grid {
+        display: grid;
+        gap: 1.25rem;
+        grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+      }
+
+      .section {
+        margin-top: 1.75rem;
+      }
+
+      .calendar-card {
+        display: grid;
+        gap: 0.75rem;
+      }
+
+      .gallery {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+      }
+
+      .gallery .vxc-image-reveal {
+        aspect-ratio: 4 / 3;
+      }
+
+      .modal-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .progress-meta {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="vxu-container demo-shell vxu-flow-stack--s4">
+      <header class="vxc-hero">
+        <div class="vxc-hero-eyebrow">Live Upgrade Demo</div>
+        <h1 class="vxc-hero-title">Velynx major feature rollout</h1>
+        <p class="vxc-hero-subtitle">
+          Single/multi/range calendars, particle loading bars, directional modals, cookie consent, and image reveal animations in one place.
+        </p>
+      </header>
+
+      <section class="section vxu-flow-stack--s3">
+        <h2 class="vxu-type-scale--t5">1-3. Calendar selectors</h2>
+        <div class="demo-grid">
+          <article class="vxc-card calendar-card">
+            <h3 class="vxu-type-scale--t4">Single date</h3>
+            <div class="vxc-calendar" data-vx="calendar" data-vx-selection="single" data-vx-selected="2026-02-14"></div>
+          </article>
+          <article class="vxc-card calendar-card">
+            <h3 class="vxu-type-scale--t4">Multi date</h3>
+            <div
+              class="vxc-calendar"
+              data-vx="calendar"
+              data-vx-selection="multi"
+              data-vx-selected-dates="2026-02-12,2026-02-14,2026-02-18"
+            ></div>
+          </article>
+          <article class="vxc-card calendar-card">
+            <h3 class="vxu-type-scale--t4">Date range</h3>
+            <div
+              class="vxc-calendar"
+              data-vx="calendar"
+              data-vx-selection="range"
+              data-vx-range-start="2026-02-10"
+              data-vx-range-end="2026-02-16"
+            ></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section vxc-card vxu-flow-stack--s3">
+        <h2 class="vxu-type-scale--t5">4. Particle scatter/collapse loading bar</h2>
+        <div class="progress-meta">
+          <label class="vxc-label" for="demo-progress">Live progress</label>
+          <span id="demo-progress-value" class="vxu-tone-ink--mute">62%</span>
+        </div>
+        <input id="demo-progress" class="vxc-range" type="range" min="0" max="100" value="62" />
+        <div
+          id="demo-particle-progress"
+          data-vx="particle-progress"
+          data-vx-progress="62"
+          data-vx-particle-count="20"
+          data-vx-progress-source="demo-progress"
+        ></div>
+      </section>
+
+      <section class="section vxc-card vxu-flow-stack--s3">
+        <h2 class="vxu-type-scale--t5">6. Modal angle animations</h2>
+        <div class="modal-actions">
+          <button class="vxc-button" data-vx-open="modal-top-left">Open top-left</button>
+          <button class="vxc-button" data-vx-open="modal-right">Open right</button>
+          <button class="vxc-button" data-vx-open="modal-bottom">Open bottom</button>
+          <button class="vxc-button vxs-variant-solid" data-vx-open="modal-random">Open random angle</button>
+        </div>
+      </section>
+
+      <section class="section vxc-card vxu-flow-stack--s3">
+        <h2 class="vxu-type-scale--t5">10. Image display animation</h2>
+        <div class="gallery">
+          <figure data-vx="image-reveal">
+            <img
+              alt="Gradient abstract one"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23235bff'/%3E%3Cstop offset='1' stop-color='%2300c2a8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='600' fill='url(%23g)'/%3E%3Ccircle cx='610' cy='140' r='115' fill='rgba(255,255,255,0.24)'/%3E%3Ctext x='56' y='320' fill='white' font-size='84' font-family='Verdana'%3EVelynx%3C/text%3E%3C/svg%3E"
+            />
+          </figure>
+          <figure data-vx="image-reveal">
+            <img
+              alt="Gradient abstract two"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='1' y1='0' x2='0' y2='1'%3E%3Cstop stop-color='%2300b894'/%3E%3Cstop offset='1' stop-color='%230b53d6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='600' fill='url(%23g)'/%3E%3Crect x='90' y='92' width='620' height='410' rx='40' fill='rgba(255,255,255,0.16)'/%3E%3Ctext x='130' y='325' fill='white' font-size='78' font-family='Verdana'%3ELive UI%3C/text%3E%3C/svg%3E"
+            />
+          </figure>
+          <figure data-vx="image-reveal">
+            <img
+              alt="Gradient abstract three"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop stop-color='%2316355e'/%3E%3Cstop offset='1' stop-color='%233979ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='600' fill='url(%23g)'/%3E%3Cpath d='M40 470 Q230 330 400 430 T760 420 L760 620 L40 620 Z' fill='rgba(255,255,255,0.22)'/%3E%3Ctext x='65' y='280' fill='white' font-size='72' font-family='Verdana'%3EMotion%3C/text%3E%3C/svg%3E"
+            />
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <div class="vxc-modal" id="modal-top-left" data-vx="modal" data-vx-angle="top-left">
+      <div class="vxc-modal-panel vxu-flow-stack--s3">
+        <h3 class="vxu-type-scale--t4">Top-left angle modal</h3>
+        <p class="vxu-tone-ink--mute">Opens and closes with angled translation and rotation.</p>
+        <button class="vxc-button" data-vx-close="modal-top-left">Close</button>
+      </div>
+    </div>
+
+    <div class="vxc-modal" id="modal-right" data-vx="modal" data-vx-angle="right">
+      <div class="vxc-modal-panel vxu-flow-stack--s3">
+        <h3 class="vxu-type-scale--t4">Right angle modal</h3>
+        <p class="vxu-tone-ink--mute">Useful for action-heavy confirmations.</p>
+        <button class="vxc-button" data-vx-close="modal-right">Close</button>
+      </div>
+    </div>
+
+    <div class="vxc-modal" id="modal-bottom" data-vx="modal" data-vx-angle="bottom">
+      <div class="vxc-modal-panel vxu-flow-stack--s3">
+        <h3 class="vxu-type-scale--t4">Bottom angle modal</h3>
+        <p class="vxu-tone-ink--mute">Transitions from depth with a soft tilt.</p>
+        <button class="vxc-button" data-vx-close="modal-bottom">Close</button>
+      </div>
+    </div>
+
+    <div class="vxc-modal" id="modal-random" data-vx="modal" data-vx-angle="random">
+      <div class="vxc-modal-panel vxu-flow-stack--s3">
+        <h3 class="vxu-type-scale--t4">Random angle modal</h3>
+        <p class="vxu-tone-ink--mute">Each open chooses a different direction.</p>
+        <button class="vxc-button" data-vx-close="modal-random">Close</button>
+      </div>
+    </div>
+
+    <aside class="vxc-cookie-banner" id="cookie-banner">
+      <div class="vxu-flow-stack--s2">
+        <strong>8. Cookie banner snippet</strong>
+        <span class="vxu-tone-ink--mute">
+          We use analytics cookies to improve interaction performance and calendar usability.
+        </span>
+      </div>
+      <div class="vxc-cookie-banner-actions">
+        <button class="vxc-button vxs-variant-solid" id="cookie-accept">Accept</button>
+        <button class="vxc-button" id="cookie-decline">Decline</button>
+      </div>
+    </aside>
+
+    <script type="module">
+      import { autoInit } from '../../packages/js/dist/velynx.esm.js';
+
+      autoInit();
+
+      const slider = document.getElementById('demo-progress');
+      const progressValue = document.getElementById('demo-progress-value');
+      const syncProgress = () => {
+        progressValue.textContent = `${slider.value}%`;
+      };
+      slider.addEventListener('input', syncProgress);
+      syncProgress();
+
+      const consentKey = 'vx-demo-cookie-consent';
+      const banner = document.getElementById('cookie-banner');
+      const openBanner = () => banner.classList.add('vxs-open');
+      const closeBanner = () => banner.classList.remove('vxs-open');
+      const currentChoice = window.localStorage.getItem(consentKey);
+
+      if (!currentChoice) {
+        setTimeout(openBanner, 280);
+      }
+
+      document.getElementById('cookie-accept').addEventListener('click', () => {
+        window.localStorage.setItem(consentKey, 'accepted');
+        closeBanner();
+      });
+
+      document.getElementById('cookie-decline').addEventListener('click', () => {
+        window.localStorage.setItem(consentKey, 'declined');
+        closeBanner();
+      });
+    </script>
+  </body>
+</html>
